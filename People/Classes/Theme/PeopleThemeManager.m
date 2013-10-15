@@ -32,6 +32,11 @@
     return [self sharedInstance].theme;
 }
 
++ (void)setTheme:(id<PeopleTheme>)theme
+{
+    [self sharedInstance].theme = theme;
+}
+
 
 
 @end

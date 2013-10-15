@@ -15,7 +15,23 @@
                     <view key="view" contentMode="scaleToFill" id="Gns-4M-LuQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1l-9E-hxh">
+                                <rect key="frame" x="120" y="269" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Go to Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="transitionToLogin:" destination="gaX-Op-6IB" eventType="touchUpInside" id="1p0-iA-SbH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="u1l-9E-hxh" secondAttribute="centerY" id="Scx-pJ-3Bw"/>
+                            <constraint firstAttribute="centerX" secondItem="u1l-9E-hxh" secondAttribute="centerX" id="tqc-OH-Q60"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8dY-pL-H99"/>
                     <connections>
@@ -39,33 +55,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" background="inputLogin" translatesAutoresizingMaskIntoConstraints="NO" id="hgR-Lh-G07">
-                                <rect key="frame" x="35" y="221" width="250" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiv-vD-d0V">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" background="inputLogin" translatesAutoresizingMaskIntoConstraints="NO" id="NJ6-u9-1ml">
-                                <rect key="frame" x="35" y="280" width="250" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logoPeopleAzul" translatesAutoresizingMaskIntoConstraints="NO" id="fF9-sP-HvZ">
-                                <rect key="frame" x="106" y="138" width="121" height="41"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOI-Mm-B3E">
-                                <rect key="frame" x="137" y="359" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANn-fz-45H">
+                                        <rect key="frame" x="15" y="152" width="290" height="264"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logoPeopleAzul" translatesAutoresizingMaskIntoConstraints="NO" id="fF9-sP-HvZ">
+                                                <rect key="frame" x="91" y="7" width="121" height="41"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" background="inputLogin" translatesAutoresizingMaskIntoConstraints="NO" id="hgR-Lh-G07">
+                                                <rect key="frame" x="20" y="90" width="250" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="6aw-uF-rXJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" background="inputLogin" translatesAutoresizingMaskIntoConstraints="NO" id="NJ6-u9-1ml">
+                                                <rect key="frame" x="20" y="149" width="250" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="2WF-af-OcV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOI-Mm-B3E">
+                                                <rect key="frame" x="122" y="228" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="264" id="XcY-4V-4eV"/>
+                                            <constraint firstAttribute="width" constant="290" id="qv8-Cc-m7L"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="ANn-fz-45H" secondAttribute="centerX" id="0Mg-5w-e9z"/>
+                                    <constraint firstAttribute="centerY" secondItem="ANn-fz-45H" secondAttribute="centerY" id="X2I-6Q-Zu4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jiv-vD-d0V" firstAttribute="top" secondItem="omQ-J1-Pcc" secondAttribute="top" id="Dji-vC-bDR"/>
+                            <constraint firstAttribute="trailing" secondItem="jiv-vD-d0V" secondAttribute="trailing" id="Ruo-nf-KId"/>
+                            <constraint firstItem="jiv-vD-d0V" firstAttribute="leading" secondItem="omQ-J1-Pcc" secondAttribute="leading" id="v2p-fN-1Ig"/>
+                            <constraint firstAttribute="bottom" secondItem="jiv-vD-d0V" secondAttribute="bottom" id="zpc-ld-N9J"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="ANn-fz-45H" id="lqw-cz-vdz"/>
+                        <outlet property="passwordTextField" destination="NJ6-u9-1ml" id="UaS-y4-rue"/>
+                        <outlet property="usernameTextField" destination="hgR-Lh-G07" id="FeM-88-Mym"/>
                         <segue destination="EvD-ep-0sV" kind="custom" identifier="PeopleLoginToSearchSegue" customClass="PeopleLoginToSearchSegue" id="xzm-hi-OYv"/>
                     </connections>
                 </viewController>
@@ -132,6 +185,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="inputLogin" width="255" height="44"/>
         <image name="inputLogin" width="255" height="44"/>
         <image name="logoPeopleAzul" width="121" height="41"/>
     </resources>

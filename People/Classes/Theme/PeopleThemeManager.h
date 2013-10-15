@@ -12,5 +12,6 @@
 @interface PeopleThemeManager : NSObject
 
 + (id<PeopleTheme>)theme;
++ (void)setTheme:(id<PeopleTheme>)theme;
 
 @end

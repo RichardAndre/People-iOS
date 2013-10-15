@@ -7,8 +7,12 @@
 //
 
 #import "PeopleLoginViewController.h"
+#import "PeopleValidation.h"
 
 @interface PeopleLoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 
@@ -57,7 +61,86 @@
     
 }
 
+- (void)adjustUIElements
+{
+
+    /*
+     Here we're just creating a view to use as a margin on our text fields
+     and making sure that our text fields always show them.
+     */
+    UIView *usernameTextFieldPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10.0, self.usernameTextField.frame.size.height)];
+    [usernameTextFieldPaddingView setBackgroundColor:[UIColor clearColor]];
+    
+    [self.usernameTextField setLeftView:usernameTextFieldPaddingView];
+    [self.usernameTextField setLeftViewMode:UITextFieldViewModeAlways];
+    
+    UIView *passwordTextFieldPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10.0, self.passwordTextField.frame.size.height)];
+    [passwordTextFieldPaddingView setBackgroundColor:[UIColor clearColor]];
+    
+    [self.passwordTextField setLeftView:passwordTextFieldPaddingView];
+    [self.passwordTextField setLeftViewMode:UITextFieldViewModeAlways];
+
+}
+
+- (void)adjustLocalizationItems
+{
+    self.usernameTextField.placeholder = NSLocalizedString(@"username", @"");
+    self.passwordTextField.placeholder = NSLocalizedString(@"password", @"");
+}
+
+
+#pragma mark - Keyboard Notifications
+
+- (void)keyboardWillHide:(BOOL)willHide animationDuration:(NSTimeInterval)animationDuration
+{
+
+    //TODO: animate constraints!! (Autolayout)
+    if (!willHide)
+    {
+    }
+    else
+    {
+    }
+}
+
+- (void)keyboardWillAppear:(NSNotification*)notification
+{
+    NSTimeInterval animationDuration = [(NSNumber*)[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    NSLog(@"%@", [[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey]);
+    [self keyboardWillHide:NO animationDuration:animationDuration];
+}
+
+- (void)keyboardWillDisappear:(NSNotification*)notification
+{
+    NSTimeInterval animationDuration = [(NSNumber*)[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [self keyboardWillHide:YES animationDuration:animationDuration];
+}
+
+#pragma mark - Transitions
+
 static NSString * const kInitialToLoginSegue = @"PeopleLoginToSearchSegue";
+
+#pragma mark - Login Workflow
+
+- (IBAction)loginButtonPressed:(id)sender
+{
+    
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.passwordTextField.text;
+    PeopleValidation *validation = [[PeopleValidation alloc] init];
+    NSError *validationError = nil;
+    if ([validation validUsername:username password:password error:&validationError])
+    {
+        //TODO: login
+    }
+    else
+    {
+        //TODO: error treatment
+    }
+    
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+}
 
 
 @end

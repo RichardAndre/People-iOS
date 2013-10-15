@@ -17,7 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self adjustUIElements];
     [self adjustFonts];
+    [self adjustLocalizationItems];
 	// Do any additional setup after loading the view.
 }
 
@@ -29,8 +31,22 @@
 
 #pragma mark - Initial Adjusts
 
+//TODO: comment
 - (void)adjustFonts
 {
-    //must be overriden
+    //should be overriden
 }
+
+//TODO: comment
+- (void)adjustUIElements
+{
+    //should be overriden
+}
+
+//TODO: comment
+- (void)adjustLocalizationItems
+{
+    
+}
+
 @end

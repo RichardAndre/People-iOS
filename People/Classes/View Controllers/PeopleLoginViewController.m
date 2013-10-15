@@ -9,10 +9,11 @@
 #import "PeopleLoginViewController.h"
 #import "PeopleValidation.h"
 
-@interface PeopleLoginViewController ()
+@interface PeopleLoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerBottomDistanceConstraint;
 
 @end
 
@@ -97,22 +98,44 @@
     //TODO: animate constraints!! (Autolayout)
     if (!willHide)
     {
+        //TODO: animate up
+
     }
     else
     {
+        //TODO: animate down
     }
 }
 
 - (void)keyboardWillAppear:(NSNotification*)notification
 {
     NSTimeInterval animationDuration = [(NSNumber*)[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    NSLog(@"%@", [[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey]);
+    
+    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+
+    [UIView animateWithDuration:animationDuration
+                     animations:^{
+                         self.containerBottomDistanceConstraint.constant = keyboardRect.size.height;
+                         [self.view layoutIfNeeded];
+                     }];
+    
+    
     [self keyboardWillHide:NO animationDuration:animationDuration];
 }
 
 - (void)keyboardWillDisappear:(NSNotification*)notification
 {
     NSTimeInterval animationDuration = [(NSNumber*)[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+
+    [UIView animateWithDuration:animationDuration
+                     animations:^{
+                         self.containerBottomDistanceConstraint.constant = CGRectZero.size.height;
+                         [self.view layoutIfNeeded];
+                     }];
+
+
+
+    
     [self keyboardWillHide:YES animationDuration:animationDuration];
 }
 
@@ -140,6 +163,20 @@ static NSString * const kInitialToLoginSegue = @"PeopleLoginToSearchSegue";
     
     [self.usernameTextField resignFirstResponder];
     [self.passwordTextField resignFirstResponder];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.usernameTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if (textField == self.passwordTextField) {
+        [self loginButtonPressed:textField];
+    }
+    [textField resignFirstResponder];
+    return YES;
 }
 
 

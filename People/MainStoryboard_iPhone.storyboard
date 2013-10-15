@@ -75,6 +75,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="T0f-Yj-H6o" id="kDE-pq-onA"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" background="inputLogin" translatesAutoresizingMaskIntoConstraints="NO" id="NJ6-u9-1ml">
                                                 <rect key="frame" x="20" y="149" width="250" height="44"/>
@@ -84,6 +87,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="T0f-Yj-H6o" id="fYd-iQ-ntT"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOI-Mm-B3E">
                                                 <rect key="frame" x="122" y="228" width="46" height="30"/>
@@ -116,6 +122,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerBottomDistanceConstraint" destination="zpc-ld-N9J" id="rYP-Ei-afY"/>
                         <outlet property="containerView" destination="ANn-fz-45H" id="lqw-cz-vdz"/>
                         <outlet property="passwordTextField" destination="NJ6-u9-1ml" id="UaS-y4-rue"/>
                         <outlet property="usernameTextField" destination="hgR-Lh-G07" id="FeM-88-Mym"/>
@@ -185,7 +192,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="inputLogin" width="255" height="44"/>
         <image name="inputLogin" width="255" height="44"/>
         <image name="logoPeopleAzul" width="121" height="41"/>
     </resources>

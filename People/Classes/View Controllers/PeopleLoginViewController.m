@@ -92,10 +92,11 @@
 
 #pragma mark - Keyboard Notifications
 
-- (void)keyboardWillHide:(BOOL)willHide animationDuration:(NSTimeInterval)animationDuration
+//FIXME: Do we need the willHide parameter here?
+- (void)keyboardWillHide:(BOOL)willHide
+       animationDuration:(NSTimeInterval)animationDuration
+          keyboardHeight:(CGFloat)height
 {
-
-    //TODO: animate constraints!! (Autolayout)
     if (!willHide)
     {
         //TODO: animate up
@@ -105,38 +106,30 @@
     {
         //TODO: animate down
     }
+    
+    [UIView animateWithDuration:animationDuration
+                     animations:^{
+                         self.containerBottomDistanceConstraint.constant = height;
+                         [self.view layoutIfNeeded];
+                     }];
 }
 
 - (void)keyboardWillAppear:(NSNotification*)notification
 {
-    NSTimeInterval animationDuration = [(NSNumber*)[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    
-    CGRect keyboardRect = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-
-    [UIView animateWithDuration:animationDuration
-                     animations:^{
-                         self.containerBottomDistanceConstraint.constant = keyboardRect.size.height;
-                         [self.view layoutIfNeeded];
-                     }];
-    
-    
-    [self keyboardWillHide:NO animationDuration:animationDuration];
+    NSTimeInterval animationDuration = [(NSNumber*)[notification userInfo][UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardRect = [[notification userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue];
+   
+    [self keyboardWillHide:NO
+         animationDuration:animationDuration
+            keyboardHeight:keyboardRect.size.height];
 }
 
 - (void)keyboardWillDisappear:(NSNotification*)notification
 {
-    NSTimeInterval animationDuration = [(NSNumber*)[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-
-    [UIView animateWithDuration:animationDuration
-                     animations:^{
-                         self.containerBottomDistanceConstraint.constant = CGRectZero.size.height;
-                         [self.view layoutIfNeeded];
-                     }];
-
-
-
-    
-    [self keyboardWillHide:YES animationDuration:animationDuration];
+    NSTimeInterval animationDuration = [(NSNumber*)[notification userInfo][UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [self keyboardWillHide:YES
+         animationDuration:animationDuration
+            keyboardHeight:CGRectZero.size.height];
 }
 
 #pragma mark - Transitions

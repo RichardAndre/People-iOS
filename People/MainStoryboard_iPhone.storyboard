@@ -133,7 +133,6 @@
     </scenes>
     <resources>
         <image name="inputLogin" width="255" height="44"/>
-        <image name="inputLogin" width="255" height="44"/>
         <image name="logoPeopleAzul" width="121" height="41"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

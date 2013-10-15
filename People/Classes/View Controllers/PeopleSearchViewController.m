@@ -35,6 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-static NSString * const kSearchToProfileSegue = @"SearchToProfileSegue";
+static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
 
 @end

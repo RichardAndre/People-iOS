@@ -35,7 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-static NSString * const kInitialToLoginSegue = @"LoginToSearchSegue";
+static NSString * const kInitialToLoginSegue = @"PeopleLoginToSearchSegue";
 
 
 @end

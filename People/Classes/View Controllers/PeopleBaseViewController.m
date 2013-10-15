@@ -13,20 +13,6 @@
 @end
 
 @implementation PeopleBaseViewController
-/*
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    
-    self = [[super initWithCoder:aDecoder]
-            initWithNibName:NSStringFromClass([self class])
-            bundle:nil];
-    
-    if (self)
-    {
-        
-    }
-    return self;
-}*/
 
 - (void)viewDidLoad
 {

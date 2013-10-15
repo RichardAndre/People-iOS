@@ -17,6 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self adjustFonts];
 	// Do any additional setup after loading the view.
 }
 
@@ -26,4 +27,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Initial Adjusts
+
+- (void)adjustFonts
+{
+    //must be overriden
+}
 @end

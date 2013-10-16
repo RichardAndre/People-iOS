@@ -14,6 +14,9 @@
 		D349CCEB180DCF9F00F3D6B1 /* PeopleThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCEA180DCF9F00F3D6B1 /* PeopleThemeManager.m */; };
 		D349CCEE180DD1B300F3D6B1 /* PeopleBasicTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCED180DD1B300F3D6B1 /* PeopleBasicTheme.m */; };
 		D349CCF2180DD94200F3D6B1 /* PeopleValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCF1180DD94200F3D6B1 /* PeopleValidation.m */; };
+		D349CCF5180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCF4180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m */; };
+		D349CCFB180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCF8180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m */; };
+		D349CCFC180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCFA180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.m */; };
 		D35255CA18071C48003D88E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35255C918071C48003D88E2 /* Foundation.framework */; };
 		D35255CC18071C48003D88E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35255CB18071C48003D88E2 /* CoreGraphics.framework */; };
 		D35255CE18071C48003D88E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D35255CD18071C48003D88E2 /* UIKit.framework */; };
@@ -51,6 +54,7 @@
 		D3AF917F180881F800F74776 /* PeopleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF917D180881F800F74776 /* PeopleSearchViewController.m */; };
 		D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF91821808820800F74776 /* PeopleProfileViewController.m */; };
 		D3AF91881808821E00F74776 /* PeopleNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF91871808821E00F74776 /* PeopleNavigationViewController.m */; };
+		D3C04635180F24FD002E09ED /* PeopleJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C04634180F24FD002E09ED /* PeopleJSONParser.m */; };
 		F79CE7DA28B547428F775C5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095B7F133C9A432FA5AF8B51 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +83,12 @@
 		D349CCEF180DD1CD00F3D6B1 /* PeopleTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PeopleTheme.h; path = Classes/Theme/PeopleTheme.h; sourceTree = "<group>"; };
 		D349CCF0180DD94200F3D6B1 /* PeopleValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleValidation.h; path = Classes/PeopleValidation.h; sourceTree = "<group>"; };
 		D349CCF1180DD94200F3D6B1 /* PeopleValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleValidation.m; path = Classes/PeopleValidation.m; sourceTree = "<group>"; };
+		D349CCF3180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PeopleCollaborator+PopulateFromServiceResponse.h"; path = "Classes/Entities/PeopleCollaborator+PopulateFromServiceResponse.h"; sourceTree = "<group>"; };
+		D349CCF4180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PeopleCollaborator+PopulateFromServiceResponse.m"; path = "Classes/Entities/PeopleCollaborator+PopulateFromServiceResponse.m"; sourceTree = "<group>"; };
+		D349CCF7180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PhoneNumberFormatter.h"; sourceTree = "<group>"; };
+		D349CCF8180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+PhoneNumberFormatter.m"; sourceTree = "<group>"; };
+		D349CCF9180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PhoneNumberFormatter.h"; sourceTree = "<group>"; };
+		D349CCFA180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PhoneNumberFormatter.m"; sourceTree = "<group>"; };
 		D35255C618071C48003D88E2 /* People.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = People.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D35255C918071C48003D88E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D35255CB18071C48003D88E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,6 +141,8 @@
 		D3AF91821808820800F74776 /* PeopleProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleProfileViewController.m; path = "Classes/View Controllers/PeopleProfileViewController.m"; sourceTree = "<group>"; };
 		D3AF91861808821E00F74776 /* PeopleNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleNavigationViewController.h; path = "Classes/View Controllers/PeopleNavigationViewController.h"; sourceTree = "<group>"; };
 		D3AF91871808821E00F74776 /* PeopleNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleNavigationViewController.m; path = "Classes/View Controllers/PeopleNavigationViewController.m"; sourceTree = "<group>"; };
+		D3C04633180F24FD002E09ED /* PeopleJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleJSONParser.h; path = Classes/PeopleJSONParser.h; sourceTree = "<group>"; };
+		D3C04634180F24FD002E09ED /* PeopleJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleJSONParser.m; path = Classes/PeopleJSONParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +177,18 @@
 				AAB3A9BA180C81EB00EBF173 /* PeopleURLSessionManager.m */,
 			);
 			name = Connection;
+			sourceTree = "<group>";
+		};
+		D349CCF6180EDF7400F3D6B1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D349CCF7180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.h */,
+				D349CCF8180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m */,
+				D349CCF9180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.h */,
+				D349CCFA180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.m */,
+			);
+			name = Categories;
+			path = Classes/Categories;
 			sourceTree = "<group>";
 		};
 		D35255BD18071C48003D88E2 = {
@@ -204,6 +228,8 @@
 		D35255CF18071C48003D88E2 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				D3C04636180F2502002E09ED /* Parsers */,
+				D349CCF6180EDF7400F3D6B1 /* Categories */,
 				AAB3A9B8180C81CA00EBF173 /* Connection */,
 				D35256181807209F003D88E2 /* Entities */,
 				D352561718072098003D88E2 /* Settings and Setup */,
@@ -313,6 +339,8 @@
 			children = (
 				AAB3A9B4180C81AA00EBF173 /* PeopleCollaborator.h */,
 				AAB3A9B5180C81AA00EBF173 /* PeopleCollaborator.m */,
+				D349CCF3180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.h */,
+				D349CCF4180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -349,6 +377,15 @@
 				D3AF91871808821E00F74776 /* PeopleNavigationViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D3C04636180F2502002E09ED /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				D3C04633180F24FD002E09ED /* PeopleJSONParser.h */,
+				D3C04634180F24FD002E09ED /* PeopleJSONParser.m */,
+			);
+			name = Parsers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,13 +541,17 @@
 				D3AF916B180881A200F74776 /* PeopleBaseViewController.m in Sources */,
 				D35255D618071C48003D88E2 /* main.m in Sources */,
 				D352561B1807213A003D88E2 /* PeoplePreferences.m in Sources */,
+				D3C04635180F24FD002E09ED /* PeopleJSONParser.m in Sources */,
 				D3AF916F180881C000F74776 /* PeopleInitialViewController.m in Sources */,
+				D349CCFC180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.m in Sources */,
+				D349CCFB180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m in Sources */,
 				D36C0C4B180C3046008C8CBB /* PeopleLoginToSearchSegue.m in Sources */,
 				D35255DA18071C48003D88E2 /* PeopleAppDelegate.m in Sources */,
 				D36C0C4E180C3058008C8CBB /* PeopleSearchToProfileSegue.m in Sources */,
 				D36C0C48180C3036008C8CBB /* PeopleInitialToSearchSegue.m in Sources */,
 				D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */,
 				D3AF917F180881F800F74776 /* PeopleSearchViewController.m in Sources */,
+				D349CCF5180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m in Sources */,
 				AAB3A9BB180C81EB00EBF173 /* PeopleURLSessionManager.m in Sources */,
 				D36C0C45180C2F76008C8CBB /* PeopleInitialToLoginSegue.m in Sources */,
 				D349CCEE180DD1B300F3D6B1 /* PeopleBasicTheme.m in Sources */,

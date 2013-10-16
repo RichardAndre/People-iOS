@@ -10,4 +10,28 @@
 
 @implementation PeopleCollaborator
 
+- (NSArray *)currentProjectsNames
+{
+    if ([self.currentProjects count] > 0)
+    {
+        return [self.currentProjects allKeys];
+    }
+    return @[];
+}
+
+- (NSArray *)pastProjectsNames
+{
+    if ([self.pastProjects count] > 0)
+    {
+        return [self.pastProjects allKeys];
+    }
+    return @[];
+    
+}
+
+- (NSString *)description
+{
+    return self.login;
+}
+
 @end

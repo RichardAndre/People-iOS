@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PeopleColaborador+PopulateFromServiceResponse.h"
+#import "PeopleCollaborator+PopulateFromServiceResponse.h"
 
 @interface PeopleJSONParser : NSObject
 
-- (NSArray *)colaboradoresArrayFromSearchResponse:(id)serviceResponse;
-- (PeopleColaborador *)colaboradorFromProfileResponse:(id)serviceResponse;
+- (NSArray *)collaboratorsFromSearchResponse:(id)serviceResponse;
+- (PeopleCollaborator *)collaboratorFromProfileResponse:(id)serviceResponse;
 
 @end

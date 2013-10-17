@@ -86,7 +86,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="2WF-af-OcV"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="T0f-Yj-H6o" id="fYd-iQ-ntT"/>
                                                 </connections>
@@ -97,6 +97,9 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="loginButtonPressed:" destination="T0f-Yj-H6o" eventType="touchUpInside" id="t0t-F3-X6D"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -124,6 +127,7 @@
                     <connections>
                         <outlet property="containerBottomDistanceConstraint" destination="zpc-ld-N9J" id="rYP-Ei-afY"/>
                         <outlet property="containerView" destination="ANn-fz-45H" id="lqw-cz-vdz"/>
+                        <outlet property="loginButton" destination="eOI-Mm-B3E" id="3fZ-QD-rCb"/>
                         <outlet property="passwordTextField" destination="NJ6-u9-1ml" id="UaS-y4-rue"/>
                         <outlet property="usernameTextField" destination="hgR-Lh-G07" id="FeM-88-Mym"/>
                         <segue destination="EvD-ep-0sV" kind="custom" identifier="PeopleLoginToSearchSegue" customClass="PeopleLoginToSearchSegue" id="xzm-hi-OYv"/>
@@ -192,6 +196,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="inputLogin" width="255" height="44"/>
         <image name="inputLogin" width="255" height="44"/>
         <image name="logoPeopleAzul" width="121" height="41"/>
     </resources>

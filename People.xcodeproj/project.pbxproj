@@ -55,6 +55,8 @@
 		D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF91821808820800F74776 /* PeopleProfileViewController.m */; };
 		D3AF91881808821E00F74776 /* PeopleNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF91871808821E00F74776 /* PeopleNavigationViewController.m */; };
 		D3C04635180F24FD002E09ED /* PeopleJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C04634180F24FD002E09ED /* PeopleJSONParser.m */; };
+		D3CADB5318101AD200CE61BB /* PeopleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5018101AD200CE61BB /* PeopleServices.m */; };
+		D3CADB5718101AFD00CE61BB /* PeopleHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5618101AFD00CE61BB /* PeopleHTTPSessionManager.m */; };
 		F79CE7DA28B547428F775C5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095B7F133C9A432FA5AF8B51 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +145,10 @@
 		D3AF91871808821E00F74776 /* PeopleNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleNavigationViewController.m; path = "Classes/View Controllers/PeopleNavigationViewController.m"; sourceTree = "<group>"; };
 		D3C04633180F24FD002E09ED /* PeopleJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleJSONParser.h; path = Classes/PeopleJSONParser.h; sourceTree = "<group>"; };
 		D3C04634180F24FD002E09ED /* PeopleJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleJSONParser.m; path = Classes/PeopleJSONParser.m; sourceTree = "<group>"; };
+		D3CADB4F18101AD200CE61BB /* PeopleServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleServices.h; path = Classes/Connection/PeopleServices.h; sourceTree = "<group>"; };
+		D3CADB5018101AD200CE61BB /* PeopleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleServices.m; path = Classes/Connection/PeopleServices.m; sourceTree = "<group>"; };
+		D3CADB5518101AFD00CE61BB /* PeopleHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleHTTPSessionManager.h; path = Classes/Connection/PeopleHTTPSessionManager.h; sourceTree = "<group>"; };
+		D3CADB5618101AFD00CE61BB /* PeopleHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleHTTPSessionManager.m; path = Classes/Connection/PeopleHTTPSessionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,10 @@
 		AAB3A9B8180C81CA00EBF173 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
+				D3CADB4F18101AD200CE61BB /* PeopleServices.h */,
+				D3CADB5018101AD200CE61BB /* PeopleServices.m */,
+				D3CADB5518101AFD00CE61BB /* PeopleHTTPSessionManager.h */,
+				D3CADB5618101AFD00CE61BB /* PeopleHTTPSessionManager.m */,
 				AAB3A9B9180C81EB00EBF173 /* PeopleURLSessionManager.h */,
 				AAB3A9BA180C81EB00EBF173 /* PeopleURLSessionManager.m */,
 			);
@@ -545,6 +555,7 @@
 				D3AF916F180881C000F74776 /* PeopleInitialViewController.m in Sources */,
 				D349CCFC180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.m in Sources */,
 				D349CCFB180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m in Sources */,
+				D3CADB5718101AFD00CE61BB /* PeopleHTTPSessionManager.m in Sources */,
 				D36C0C4B180C3046008C8CBB /* PeopleLoginToSearchSegue.m in Sources */,
 				D35255DA18071C48003D88E2 /* PeopleAppDelegate.m in Sources */,
 				D36C0C4E180C3058008C8CBB /* PeopleSearchToProfileSegue.m in Sources */,
@@ -554,6 +565,7 @@
 				D349CCF5180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m in Sources */,
 				AAB3A9BB180C81EB00EBF173 /* PeopleURLSessionManager.m in Sources */,
 				D36C0C45180C2F76008C8CBB /* PeopleInitialToLoginSegue.m in Sources */,
+				D3CADB5318101AD200CE61BB /* PeopleServices.m in Sources */,
 				D349CCEE180DD1B300F3D6B1 /* PeopleBasicTheme.m in Sources */,
 				AAB3A9B6180C81AA00EBF173 /* PeopleCollaborator.m in Sources */,
 				D3AF9175180881DE00F74776 /* PeopleLoginViewController.m in Sources */,

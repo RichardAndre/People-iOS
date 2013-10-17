@@ -8,12 +8,15 @@
 
 #import "PeopleLoginViewController.h"
 #import "PeopleValidation.h"
+#import "PeopleServices.h"
+#import "PeoplePreferences.h"
 
 @interface PeopleLoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerBottomDistanceConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -147,15 +150,24 @@ static NSString * const kInitialToLoginSegue = @"PeopleLoginToSearchSegue";
     NSError *validationError = nil;
     if ([validation validUsername:username password:password error:&validationError])
     {
-        //TODO: login
+        [self loginWithUsername:username password:password];
     }
     else
     {
-        //TODO: error treatment
+        [self loginErrorWithError:validationError];
     }
     
     [self.usernameTextField resignFirstResponder];
     [self.passwordTextField resignFirstResponder];
+}
+
+- (void)performLoginSucceededOperationsWithColaborador:(PeopleCollaborator *)colaborador
+{
+    [PeoplePreferences setAutoLogin:YES];
+    [PeoplePreferences setUsername:self.usernameTextField.text
+                          password:self.passwordTextField.text];
+    
+    [self performSegueWithIdentifier:kInitialToLoginSegue sender:self];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -171,6 +183,78 @@ static NSString * const kInitialToLoginSegue = @"PeopleLoginToSearchSegue";
     [textField resignFirstResponder];
     return YES;
 }
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    BOOL enabled = YES;
+    
+    if (([textField.text length] <=1) && ([string length] == 0)) {
+        enabled = NO;
+    }
+    
+    if (textField != self.usernameTextField && [self.usernameTextField.text length] == 0)
+    {
+        enabled = NO;
+    }
+    
+    if (textField != self.passwordTextField && [self.passwordTextField.text length] == 0)
+    {
+        enabled = NO;
+    }
+    
+    
+    [self.loginButton setEnabled:enabled];
+    
+    return YES;
+}
+
+#pragma mark - Functionality
+
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password
+{
+    self.loginButton.enabled = NO;
+    [PeopleServices loginWithUsername:username
+                             password:password
+                              success:^(PeopleCollaborator *colaborador) {
+                                  [self performLoginSucceededOperationsWithColaborador:colaborador];
+                              } failure:^(NSError *error) {
+                                  [self loginErrorWithError:error];
+                              }];
+}
+
+- (void)loginErrorWithError:(NSError *)error
+{
+    NSString *loginButtonTitle;
+    NSString *userPadImageName;
+    NSString *passPadImageName;
+    switch (error.code) {
+        case PeopleValidationErrorBlankUsernameOnly:
+            userPadImageName = @"ico-user-error";
+            passPadImageName = @"ico-pass-normal";
+            loginButtonTitle = NSLocalizedString(@"Blank username!", @"");
+            break;
+        case PeopleValidationErrorBlankPasswordOnly:
+            userPadImageName = @"ico-user-normal";
+            passPadImageName = @"ico-pass-error";
+            loginButtonTitle = NSLocalizedString(@"Blank password!", @"");
+            break;
+        case PeopleValidationErrorBlankUsernameAndPassword:
+            userPadImageName = @"ico-user-error";
+            passPadImageName = @"ico-pass-error";
+            loginButtonTitle = NSLocalizedString(@"Blank username and password!", @"");
+            break;
+        default:
+            userPadImageName = @"ico-user-normal";
+            passPadImageName = @"ico-pass-normal";
+            loginButtonTitle = NSLocalizedString(@"Server Error!", @"");
+            break;
+    }
+    
+    [self.loginButton setTitle:loginButtonTitle forState:UIControlStateNormal];
+    self.loginButton.enabled = YES;
+    
+}
+
 
 
 @end

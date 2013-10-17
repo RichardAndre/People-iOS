@@ -10,7 +10,7 @@
 
 @implementation PeopleJSONParser
 
-- (NSArray *)colaboradoresArrayFromSearchResponse:(id)serviceResponse;
+- (NSArray *)collaboratorsFromSearchResponse:(id)serviceResponse;
 {
     NSDictionary *responseDictionary = serviceResponse;
     
@@ -18,14 +18,14 @@
     NSArray *colaboradores = @[];
     if ([responseData isKindOfClass:[NSArray class]])
     {
-        colaboradores = [PeopleColaborador colaboradoresFromSearchResponse:responseData];
+        colaboradores = [PeopleCollaborator collaboratorsFromSearchResponse:responseData];
     }
     return colaboradores;
 }
 
-- (PeopleColaborador *)colaboradorFromProfileResponse:(id)serviceResponse;
+- (PeopleCollaborator *)collaboratorFromProfileResponse:(id)serviceResponse;
 {
-    PeopleColaborador *colaborador = [PeopleColaborador colaboradorFromProfileResponse:serviceResponse];
+    PeopleCollaborator *colaborador = [PeopleCollaborator collaboratorFromProfileResponse:serviceResponse];
     return colaborador;
 }
 

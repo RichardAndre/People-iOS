@@ -57,6 +57,9 @@
 		D3C04635180F24FD002E09ED /* PeopleJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D3C04634180F24FD002E09ED /* PeopleJSONParser.m */; };
 		D3CADB5318101AD200CE61BB /* PeopleServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5018101AD200CE61BB /* PeopleServices.m */; };
 		D3CADB5718101AFD00CE61BB /* PeopleHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5618101AFD00CE61BB /* PeopleHTTPSessionManager.m */; };
+		D3CADB5A18102A2400CE61BB /* PeopleSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5918102A2400CE61BB /* PeopleSearchTextField.m */; };
+		D3CADB5D18102A9D00CE61BB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CADB5C18102A9D00CE61BB /* QuartzCore.framework */; };
+		D3CADB6018102DD600CE61BB /* PeopleSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5F18102DD600CE61BB /* PeopleSearchDataSource.m */; };
 		F79CE7DA28B547428F775C5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095B7F133C9A432FA5AF8B51 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +152,11 @@
 		D3CADB5018101AD200CE61BB /* PeopleServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleServices.m; path = Classes/Connection/PeopleServices.m; sourceTree = "<group>"; };
 		D3CADB5518101AFD00CE61BB /* PeopleHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleHTTPSessionManager.h; path = Classes/Connection/PeopleHTTPSessionManager.h; sourceTree = "<group>"; };
 		D3CADB5618101AFD00CE61BB /* PeopleHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleHTTPSessionManager.m; path = Classes/Connection/PeopleHTTPSessionManager.m; sourceTree = "<group>"; };
+		D3CADB5818102A2400CE61BB /* PeopleSearchTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleSearchTextField.h; path = Classes/Components/PeopleSearchTextField.h; sourceTree = "<group>"; };
+		D3CADB5918102A2400CE61BB /* PeopleSearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleSearchTextField.m; path = Classes/Components/PeopleSearchTextField.m; sourceTree = "<group>"; };
+		D3CADB5C18102A9D00CE61BB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D3CADB5E18102DD500CE61BB /* PeopleSearchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleSearchDataSource.h; path = People/Classes/PeopleSearchDataSource.h; sourceTree = "<group>"; };
+		D3CADB5F18102DD600CE61BB /* PeopleSearchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleSearchDataSource.m; path = People/Classes/PeopleSearchDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CADB5D18102A9D00CE61BB /* QuartzCore.framework in Frameworks */,
 				D35255CC18071C48003D88E2 /* CoreGraphics.framework in Frameworks */,
 				D35255CE18071C48003D88E2 /* UIKit.framework in Frameworks */,
 				D35255CA18071C48003D88E2 /* Foundation.framework in Frameworks */,
@@ -204,6 +213,8 @@
 		D35255BD18071C48003D88E2 = {
 			isa = PBXGroup;
 			children = (
+				D3CADB5E18102DD500CE61BB /* PeopleSearchDataSource.h */,
+				D3CADB5F18102DD600CE61BB /* PeopleSearchDataSource.m */,
 				D35255CF18071C48003D88E2 /* People */,
 				D36C0C4F180C309B008C8CBB /* Segues */,
 				D35255F818071FDD003D88E2 /* Resources */,
@@ -226,6 +237,7 @@
 		D35255C818071C48003D88E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3CADB5C18102A9D00CE61BB /* QuartzCore.framework */,
 				D35255C918071C48003D88E2 /* Foundation.framework */,
 				D35255CB18071C48003D88E2 /* CoreGraphics.framework */,
 				D35255CD18071C48003D88E2 /* UIKit.framework */,
@@ -246,6 +258,7 @@
 				D35256151807208C003D88E2 /* Theme */,
 				D35255D018071C48003D88E2 /* Supporting Files */,
 				D3AF9171180881D100F74776 /* View Controllers */,
+				D3CADB5B18102A2A00CE61BB /* Components */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -396,6 +409,15 @@
 				D3C04634180F24FD002E09ED /* PeopleJSONParser.m */,
 			);
 			name = Parsers;
+			sourceTree = "<group>";
+		};
+		D3CADB5B18102A2A00CE61BB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D3CADB5818102A2400CE61BB /* PeopleSearchTextField.h */,
+				D3CADB5918102A2400CE61BB /* PeopleSearchTextField.m */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,11 +579,13 @@
 				D349CCFB180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m in Sources */,
 				D3CADB5718101AFD00CE61BB /* PeopleHTTPSessionManager.m in Sources */,
 				D36C0C4B180C3046008C8CBB /* PeopleLoginToSearchSegue.m in Sources */,
+				D3CADB5A18102A2400CE61BB /* PeopleSearchTextField.m in Sources */,
 				D35255DA18071C48003D88E2 /* PeopleAppDelegate.m in Sources */,
 				D36C0C4E180C3058008C8CBB /* PeopleSearchToProfileSegue.m in Sources */,
 				D36C0C48180C3036008C8CBB /* PeopleInitialToSearchSegue.m in Sources */,
 				D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */,
 				D3AF917F180881F800F74776 /* PeopleSearchViewController.m in Sources */,
+				D3CADB6018102DD600CE61BB /* PeopleSearchDataSource.m in Sources */,
 				D349CCF5180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m in Sources */,
 				AAB3A9BB180C81EB00EBF173 /* PeopleURLSessionManager.m in Sources */,
 				D36C0C45180C2F76008C8CBB /* PeopleInitialToLoginSegue.m in Sources */,

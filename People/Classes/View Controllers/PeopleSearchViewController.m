@@ -11,7 +11,7 @@
 #import "PeopleSearchDataSource.h"
 #import "PeopleSearchTableViewCell.h"
 
-@interface PeopleSearchViewController ()
+@interface PeopleSearchViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (strong, nonatomic) PeopleSearchDataSource *datasource;
@@ -38,6 +38,7 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     // Do any additional setup after loading the view from its nib.
 }
 
+
 - (void)setupTableView
 {
     /*
@@ -49,6 +50,7 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     self.datasource = [[PeopleSearchDataSource alloc] initWithCellIdentifier:kPeopleSearchCellIdentifier
                                                           configureCellBlock:nil];
     self.resultsTableView.dataSource = self.datasource;
+    self.resultsTableView.delegate = self;
 
     [self.resultsTableView registerNib:[PeopleSearchTableViewCell nib] forCellReuseIdentifier:kPeopleSearchCellIdentifier];
 //    [self.resultsTableView registerClass:[PeopleSearchTableViewCell class]
@@ -66,6 +68,14 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
 {
     [self.searchTextField resignFirstResponder];
 }
+
+static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:kSearchToProfileSegue sender:self];
+}
+
 
 #pragma mark - Search
 
@@ -86,6 +96,5 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     return YES;
 }
 
-static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
 
 @end

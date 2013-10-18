@@ -145,7 +145,10 @@ echo Generating .ipa file
 
 echo "${PROJECT_BUILDDIR}"
 # change to the project build dir to archive
-/usr/bin/xcrun -sdk "${TARGET_SDK}" PackageApplication -v "${PROJECT_BUILDDIR}/${APP_NAME}.app" -o "${PROJECT_BUILDDIR}/${APP_NAME}.ipa" --sign "${CERTIFICATE_NAME}" 
+PROVISIONIN_PATH="provisioning/People_Beta.mobileprovision"
+
+
+/usr/bin/xcrun -sdk "${TARGET_SDK}" PackageApplication -v "${PROJECT_BUILDDIR}/${APP_NAME}.app" -o "${PROJECT_BUILDDIR}/${APP_NAME}.ipa" --sign "${CERTIFICATE_NAME} --embed "${CURRENT_DIR}/${PROVISIONING_PATH}" 
 
 #zipping the .dSYM to send to Testflight
 echo Generating zip file

@@ -36,7 +36,7 @@ PODS:
   - FormatterKit/TimeIntervalFormatter (1.2.1)
   - FormatterKit/UnitOfInformationFormatter (1.2.1)
   - FormatterKit/URLRequestFormatter (1.2.1)
-  - PeopleSwipeTableViewCell (1.0)
+  - HHPanningTableViewCell (2.0.0)
   - SSKeychain (1.2.1)
 
 DEPENDENCIES:
@@ -45,21 +45,19 @@ DEPENDENCIES:
   - ARSafeJSON
   - BKUIAdditions (from `https://github.com/brunokoga/BKUIAdditions.git`)
   - FormatterKit (~> 1.2.0)
-  - PeopleSwipeTableViewCell (from `https://github.com/brunokoga/PeopleSwipeTableViewCell.git`)
+  - HHPanningTableViewCell
   - SSKeychain
 
 EXTERNAL SOURCES:
   BKUIAdditions:
     :git: https://github.com/brunokoga/BKUIAdditions.git
-  PeopleSwipeTableViewCell:
-    :git: https://github.com/brunokoga/PeopleSwipeTableViewCell.git
 
 SPEC CHECKSUMS:
   AFNetworking: a6f11ac4ac087303e6ff87adc1ba57b0dac20ef8
   ARSafeJSON: 737d05b66a51376fcc7c548569c457a77a70bd2c
   BKUIAdditions: 77a86d349bfc570c7fa920991d12b2a91932903a
   FormatterKit: 43c6567e367a872196747fda0c26395c37bd7dd6
-  PeopleSwipeTableViewCell: fbd4456e677bb19d32577973b1582d757c46f31b
+  HHPanningTableViewCell: 16b23eb06b99121c7fd678b6f54700338317b008
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
 COCOAPODS: 0.26.2

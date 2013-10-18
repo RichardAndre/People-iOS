@@ -9,6 +9,7 @@
 #import "PeopleSearchViewController.h"
 #import "PeopleServices.h"
 #import "PeopleSearchDataSource.h"
+#import "PeopleSearchTableViewCell.h"
 
 @interface PeopleSearchViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -49,9 +50,9 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
                                                           configureCellBlock:nil];
     self.resultsTableView.dataSource = self.datasource;
 
-    //    [self.tableView registerNib:[PhotoCell nib] forCellReuseIdentifier:PhotoCellIdentifier];
-    [self.resultsTableView registerClass:[UITableViewCell class]
-                  forCellReuseIdentifier:kPeopleSearchCellIdentifier];
+    [self.resultsTableView registerNib:[PeopleSearchTableViewCell nib] forCellReuseIdentifier:kPeopleSearchCellIdentifier];
+//    [self.resultsTableView registerClass:[PeopleSearchTableViewCell class]
+//                  forCellReuseIdentifier:kPeopleSearchCellIdentifier];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -76,7 +77,6 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
                                            
                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                [self.resultsTableView reloadData];
-                                               NSLog(@"%@",self.datasource.items);
                                            });
                                            
                                        } failure:^(NSError *error) {
@@ -85,9 +85,6 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     [textField resignFirstResponder];
     return YES;
 }
-
-
-
 
 static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
 

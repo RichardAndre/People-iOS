@@ -137,7 +137,7 @@
 
 #pragma mark - Transitions
 
-static NSString * const kInitialToLoginSegue = @"PeopleLoginToSearchSegue";
+static NSString * const kLoginToSearchSegue = @"PeopleLoginToSearchSegue";
 
 #pragma mark - Login Workflow
 
@@ -167,7 +167,7 @@ static NSString * const kInitialToLoginSegue = @"PeopleLoginToSearchSegue";
     [PeoplePreferences setUsername:self.usernameTextField.text
                           password:self.passwordTextField.text];
     
-    [self performSegueWithIdentifier:kInitialToLoginSegue sender:self];
+    [self performSegueWithIdentifier:kLoginToSearchSegue sender:self];
 }
 
 #pragma mark - UITextFieldDelegate

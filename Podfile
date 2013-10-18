@@ -4,7 +4,7 @@ pod 'AFNetworking'
 pod 'AFNetworking/UIKit'
 pod 'SSKeychain' 
 pod 'ARSafeJSON'
-pod 'PeopleSwipeTableViewCell', :git => 'https://github.com/brunokoga/PeopleSwipeTableViewCell.git'
+pod 'HHPanningTableViewCell'
 pod 'BKUIAdditions', :git => 'https://github.com/brunokoga/BKUIAdditions.git'
 pod 'FormatterKit', '~> 1.2.0'
 

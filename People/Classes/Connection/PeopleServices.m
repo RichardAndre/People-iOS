@@ -104,6 +104,15 @@
                     } failure:failure];
 }
 
++ (void)setUsername:(NSString *)username
+           password:(NSString *)password
+{
+    PeopleHTTPSessionManager *session = [PeopleHTTPSessionManager sharedManager];
+    [session setUsername:username
+                password:password];
+}
+
+
 
 
 @end

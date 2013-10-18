@@ -7,6 +7,9 @@
 //
 
 #import "PeopleInitialViewController.h"
+#import "PeopleLoginViewController.h"
+#import "PeoplePreferences.h"
+#import "PeopleServices.h"
 
 @interface PeopleInitialViewController ()
 
@@ -32,10 +35,21 @@ static NSString * const kInitialToSearchSegue = @"PeopleInitialToSearchSegue";
 
 - (IBAction)transitionToLogin:(id)sender
 {
-    [self performSegueWithIdentifier:kInitialToLoginSegue
+    NSString *segueIdentifier = kInitialToLoginSegue;
+    if ([PeoplePreferences isAutoLoginOn])
+    {
+        [PeopleServices setUsername:[PeoplePreferences username]
+                           password:[PeoplePreferences password]];
+        segueIdentifier = kInitialToSearchSegue;
+    }
+    [self performSegueWithIdentifier:segueIdentifier
                               sender:self];
+
 }
 
+- (IBAction)logout:(id)sender {
+    [PeoplePreferences resetUsernameAndPassword];
+}
 
 
 @end

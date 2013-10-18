@@ -33,4 +33,7 @@
                success:(void (^)(PeopleCollaborator *colarabor))success
                failure:(void (^)(NSError *error))failure;
 
++ (void)setUsername:(NSString *)username
+           password:(NSString *)password;
+
 @end

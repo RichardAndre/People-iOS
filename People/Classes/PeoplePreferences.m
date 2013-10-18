@@ -100,6 +100,7 @@ static NSString * const kPasswordKeychainKey = @"PeoplePasswordKeychainKey";
 {
     [SSKeychain deletePasswordForService:kPeopleServiceKeychain account:kUsernameKeychainKey];
     [SSKeychain deletePasswordForService:kPeopleServiceKeychain account:kPasswordKeychainKey];
+    [self setAutoLogin:NO];
 }
 
 @end

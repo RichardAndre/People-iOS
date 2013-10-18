@@ -108,6 +108,16 @@ BUILD_ARCHIVED_DIR="BuildArchived"					# Directory with the history of builds
 #Release Notes
 TESTFLIGHT_RELEASE_NOTES_FILE="ios_testflight-releasenotes"
 
+# fix for the newest sdk
+# Only export the environment variable if the location exists,
+# otherwise it breaks the signing process!
+if [ -f "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate" ]
+then
+	  echo Export environment variable for codesign_allocate location
+	    export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate
+    fi
+
+
 # Returns to the root directory` of the build
 cd ..
 

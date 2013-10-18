@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (strong, nonatomic) PeopleSearchDataSource *datasource;
+@property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 
 @end
 
@@ -36,6 +37,16 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     [super viewDidLoad];
     [self setupTableView];
     // Do any additional setup after loading the view from its nib.
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (self.selectedIndexPath)
+    {
+        [self.resultsTableView deselectRowAtIndexPath:self.selectedIndexPath
+                                             animated:YES];
+        self.selectedIndexPath = nil;
+    }
 }
 
 
@@ -73,6 +84,7 @@ static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectedIndexPath = indexPath;
     [self performSegueWithIdentifier:kSearchToProfileSegue sender:self];
 }
 

@@ -109,12 +109,13 @@
     {
         //TODO: animate down
     }
-    
+
     [UIView animateWithDuration:animationDuration
                      animations:^{
                          self.containerBottomDistanceConstraint.constant = height;
                          [self.view layoutIfNeeded];
                      }];
+ 
 }
 
 - (void)keyboardWillAppear:(NSNotification*)notification

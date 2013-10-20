@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self populate];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -35,10 +36,16 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)populate
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    //FIXME: remove hardcoded stuff
+    //    [self.scrollView setContentSize:CGSizeMake(320.0, 900.0)];
+}
+
+- (void)setCollaborator:(PeopleCollaborator *)collaborator
+{
+    _collaborator = collaborator;
+    self.title = collaborator.login;
 }
 
 @end

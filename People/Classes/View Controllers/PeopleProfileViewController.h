@@ -7,7 +7,10 @@
 //
 
 #import "PeopleBaseViewController.h"
+#import "PeopleCollaborator.h"
 
 @interface PeopleProfileViewController : PeopleBaseViewController
+
+@property (nonatomic, retain) PeopleCollaborator *collaborator;
 
 @end

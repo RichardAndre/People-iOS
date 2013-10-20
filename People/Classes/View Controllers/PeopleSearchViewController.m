@@ -10,6 +10,7 @@
 #import "PeopleServices.h"
 #import "PeopleSearchDataSource.h"
 #import "PeopleSearchTableViewCell+ConfigureForCollaborator.h"
+#import "PeopleProfileViewController.h"
 
 @interface PeopleSearchViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -89,6 +90,18 @@ static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
     self.selectedIndexPath = indexPath;
     [self performSegueWithIdentifier:kSearchToProfileSegue sender:self];
 }
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:kSearchToProfileSegue])
+    {
+        PeopleProfileViewController *profileViewController = segue.destinationViewController;
+        profileViewController.collaborator = self.datasource.items[self.selectedIndexPath.row];
+    }
+}
+
 
 #pragma mark - Search
 

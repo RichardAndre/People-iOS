@@ -7,6 +7,7 @@
 //
 
 #import "PeopleSearchTableViewCell.h"
+#import "HHPanningTableViewCell_Private.h"
 
 @interface PeopleSearchTableViewCell ()
 
@@ -41,13 +42,137 @@
 
 - (void)setupDrawer
 {
-    UIView *drawerView = [[UIView alloc] initWithFrame:self.frame];
-    
-    drawerView.backgroundColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
-    
-    self.drawerView = drawerView;
     self.directionMask = 1;
 
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"PeopleSearchDrawerCell"
+                                                      owner:self
+                                                    options:nil];
+    UIView *drawerView = (UIView *)[nibViews objectAtIndex:0];
+    self.drawerView = drawerView;
 }
+static CGFloat const kPhotoOffset = 76.0;
+
+
+#pragma mark - Superclass overriding
+
+/*
+ *
+ * We're overriding this method because the original library doesn't support
+ * partial-opened drawer.
+ * To do so, I created a HHPanningTableViewCell_Private.h exposing some methods
+ * and properties that I needed to correctly override this method.
+ *
+ */
+
+- (void)setDrawerRevealed:(BOOL)revealed direction:(HHPanningTableViewCellDirection)direction animated:(BOOL)animated
+{
+	if ([self isEditing] || (self.drawerView == nil)) {
+		return;
+	}
+    
+	self.drawerRevealed = revealed;
+    
+	UIView	*drawerView		= self.drawerView;
+	UIView	*shadowView		= self.shadowView;
+	UIView	*contentView	= self.contentView;
+    
+	CGFloat duration		= animated ? HH_PANNING_ANIMATION_DURATION : 0.0f;
+    
+	if (revealed) {
+		CGRect	bounds		= [contentView frame];
+		CGFloat translation = 0.0f;
+        
+		if (direction == HHPanningTableViewCellDirectionRight) {
+			translation = bounds.size.width -kPhotoOffset;
+		}
+		else {
+			translation = -bounds.size.width +kPhotoOffset;
+		}
+        
+		[self installViews];
+        
+		self.animationInProgress = YES;
+        
+		void	(^animations)(void) = ^{
+			self.translation = translation;
+		};
+        
+		void	(^completion)(BOOL finished) = ^(BOOL finished) {
+			self.animationInProgress = NO;
+		};
+        
+		if (animated) {
+			[UIView animateWithDuration:HH_PANNING_ANIMATION_DURATION
+								  delay:0.0f
+								options:UIViewAnimationOptionCurveEaseOut
+							 animations:animations
+							 completion:completion];
+		}
+		else {
+			animations();
+			completion(YES);
+		}
+	}
+	else {
+		void	(^animations)(void) = ^{
+			self.translation = 0.0f;
+		};
+        
+		self.animationInProgress = YES;
+        
+		void	(^completion)(BOOL finished) = ^(BOOL finished) {
+			[drawerView removeFromSuperview];
+			[shadowView removeFromSuperview];
+            
+			self.animationInProgress = NO;
+		};
+        
+		if (animated) {
+			BOOL shouldBounce = self.shouldBounce;
+            
+			if (shouldBounce) {
+				CGFloat bounceDuration		= duration;
+				CGFloat translation			= self.translation;
+				CGFloat bounceMultiplier	= fminf(fabsf(translation / HH_PANNING_TRIGGER_OFFSET), 1.0f);
+				CGFloat bounceTranslation	= bounceMultiplier * HH_PANNING_BOUNCE_DISTANCE;
+                
+				if (translation < 0.0f) {
+					bounceTranslation *= -1.0;
+				}
+                
+				[UIView animateWithDuration:duration
+									  delay:0.0f
+									options:UIViewAnimationOptionCurveEaseOut
+								 animations:animations
+								 completion:^(BOOL finished) {
+									 [UIView animateWithDuration:bounceDuration
+														   delay:0.0f
+														 options:UIViewAnimationOptionCurveLinear
+													  animations:^{
+														  self.translation = bounceTranslation;
+													  } completion:^(BOOL finished) {
+														  [UIView animateWithDuration:bounceDuration
+																				delay:0.0f
+																			  options:UIViewAnimationOptionCurveLinear
+																		   animations:animations
+																		   completion:completion];
+													  }];
+								 }];
+			}
+			else {
+				[UIView animateWithDuration:duration
+									  delay:0.0f
+									options:UIViewAnimationOptionCurveEaseOut
+								 animations:animations
+								 completion:completion];
+			}
+		}
+		else {
+			animations();
+			completion(YES);
+		}
+	}
+}
+
 
 @end

@@ -180,6 +180,20 @@
     _collaborator = collaborator;
     self.title = collaborator.login;
     [self populate];
+    [PeopleServices profileForUser:collaborator.login
+                           success:^(PeopleCollaborator *collaboratorProfile) {
+                               self.collaborator.teammates = collaboratorProfile.teammates;
+                               self.collaborator.currentProjects = collaboratorProfile.currentProjects;
+                               self.collaborator.pastProjects = collaboratorProfile.pastProjects;
+                               self.collaborator.mentorName = collaboratorProfile.mentorName;
+                               [self.coachView.nameButton setTitle:self.collaborator.mentorName
+                                                          forState:UIControlStateNormal];
+                               //                               [self populateTeamView];
+                               //[self populateProjectsView];]
+                           } failure:^(NSError *error) {
+                               
+                           }];
+
 }
 
 - (void)populate
@@ -188,6 +202,26 @@
     [self populatePhoneContactView];
     [self populateMobileContactView];
     [self populateEmailContactView];
+    [self populateCoachView];
+}
+
+- (void)populateCoachView
+{
+    [self.coachView.nameButton setTitle:self.collaborator.mentorLogin
+                               forState:UIControlStateNormal];
+
+    [PeopleServices photoForUser:self.collaborator.mentorLogin
+                         success:^(UIImage *image) {
+                             if ([image isKindOfClass:[UIImage class]])
+                             {
+                                 self.coachView.imageView.image = image;
+                             }
+                         } failure:^(NSError *error) {
+                             
+                         }];
+    [self.coachView.nameButton addTarget:self
+                                  action:@selector(openCoachProfile)
+                        forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)populatePhoneContactView
@@ -269,6 +303,29 @@
     [[PeopleContactServices sharedServices] presentEmailComposerOnViewController:self
                                                                   withRecipients:@[recipient]];
     
+}
+
+- (void)openCoachProfile
+{
+    [PeopleServices colaboradoresForSearchTerm:self.collaborator.mentorLogin
+                                       success:^(NSArray *colaboradores) {
+                                           PeopleCollaborator *mentor;
+                                           if ([colaboradores count] > 1) //case: mentor == 'bruno'
+                                           {
+                                               mentor = [colaboradores filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"login MATCHES %@", self.collaborator.mentorLogin]][0];
+                                           }
+                                           else
+                                           {
+                                               mentor = colaboradores[0];
+                                           }
+                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+                                           PeopleProfileViewController *mentorProfile = [storyboard instantiateViewControllerWithIdentifier:@"PeopleProfileViewController"];
+                                           [mentorProfile setCollaborator:mentor];
+                                           [self.navigationController pushViewController:mentorProfile animated:YES];
+                                           
+                                       } failure:^(NSError *error) {
+                                           
+                                       }];
 }
 
 @end

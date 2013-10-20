@@ -232,7 +232,15 @@
 
 - (void)populateProjectsView
 {
-    
+    [self.projectsView setPastProjects:self.collaborator.pastProjectsNames
+                       currentProjects:self.collaborator.currentProjectsNames];
+    [self.projectsView setFrame:CGRectMake(self.projectsView.frame.origin.x,
+                                          self.projectsView.frame.origin.y,
+                                          self.projectsView.frame.size.width,
+                                           [self.projectsView totalHeight] + 10.0)];
+  
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width,
+                                               self.projectsView.frame.origin.y + self.projectsView.frame.size.height)];
 }
 
 - (void)populateCoachView

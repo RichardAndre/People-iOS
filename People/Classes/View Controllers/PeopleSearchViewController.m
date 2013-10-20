@@ -9,7 +9,7 @@
 #import "PeopleSearchViewController.h"
 #import "PeopleServices.h"
 #import "PeopleSearchDataSource.h"
-#import "PeopleSearchTableViewCell.h"
+#import "PeopleSearchTableViewCell+ConfigureForCollaborator.h"
 
 @interface PeopleSearchViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -52,20 +52,27 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
 
 - (void)setupTableView
 {
-    /*
-    TableViewCellConfigureBlock configureCell = ^(PhotoCell *cell, Photo *photo) {
-        [cell configureForPhoto:photo];
+    
+    TableViewCellConfigureBlock configureCell = ^(PeopleSearchTableViewCell *cell, PeopleCollaborator *collaborator) {
+        [cell configureForCollaborator:collaborator];
+
+        [PeopleServices photoForUser:collaborator.login
+                             success:^(UIImage *image) {
+                                 if ([cell.loginLabel.text isEqualToString:collaborator.login]) {
+                                     cell.photoImageView.image = image;
+                                 }
+                             }
+                             failure:^(NSError *error) {
+                                 
+                             }];
     };
-  */
 
     self.datasource = [[PeopleSearchDataSource alloc] initWithCellIdentifier:kPeopleSearchCellIdentifier
-                                                          configureCellBlock:nil];
+                                                          configureCellBlock:configureCell];
     self.resultsTableView.dataSource = self.datasource;
     self.resultsTableView.delegate = self;
 
     [self.resultsTableView registerNib:[PeopleSearchTableViewCell nib] forCellReuseIdentifier:kPeopleSearchCellIdentifier];
-//    [self.resultsTableView registerClass:[PeopleSearchTableViewCell class]
-//                  forCellReuseIdentifier:kPeopleSearchCellIdentifier];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -75,11 +82,6 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
 
 #pragma mark TableView Delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self.searchTextField resignFirstResponder];
-}
-
 static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,7 +89,6 @@ static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
     self.selectedIndexPath = indexPath;
     [self performSegueWithIdentifier:kSearchToProfileSegue sender:self];
 }
-
 
 #pragma mark - Search
 

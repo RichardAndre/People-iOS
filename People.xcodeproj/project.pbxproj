@@ -51,6 +51,7 @@
 		D38E728D1811C06D00CEB3FA /* PeopleSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E728C1811C06D00CEB3FA /* PeopleSearchTableViewCell.m */; };
 		D38E72921811D15B00CEB3FA /* PeopleSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D38E72911811D15B00CEB3FA /* PeopleSearchTableViewCell.xib */; };
 		D390642918143EE60070B6EF /* PeopleSearchDrawerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D390642818143EE60070B6EF /* PeopleSearchDrawerCell.xib */; };
+		D390642D181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m in Sources */ = {isa = PBXBuildFile; fileRef = D390642C181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m */; };
 		D3AF916B180881A200F74776 /* PeopleBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF916A180881A100F74776 /* PeopleBaseViewController.m */; };
 		D3AF916F180881C000F74776 /* PeopleInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF916D180881C000F74776 /* PeopleInitialViewController.m */; };
 		D3AF9175180881DE00F74776 /* PeopleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF9173180881DE00F74776 /* PeopleLoginViewController.m */; };
@@ -142,6 +143,8 @@
 		D38E72911811D15B00CEB3FA /* PeopleSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleSearchTableViewCell.xib; path = People/Classes/Cell/PeopleSearchTableViewCell.xib; sourceTree = "<group>"; };
 		D390642818143EE60070B6EF /* PeopleSearchDrawerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleSearchDrawerCell.xib; path = People/Classes/Cell/PeopleSearchDrawerCell.xib; sourceTree = "<group>"; };
 		D390642A181440EC0070B6EF /* HHPanningTableViewCell_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HHPanningTableViewCell_Private.h; path = People/Classes/Cell/HHPanningTableViewCell_Private.h; sourceTree = "<group>"; };
+		D390642B181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PeopleSearchTableViewCell+ConfigureForCollaborator.h"; path = "People/Classes/Cell/PeopleSearchTableViewCell+ConfigureForCollaborator.h"; sourceTree = "<group>"; };
+		D390642C181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PeopleSearchTableViewCell+ConfigureForCollaborator.m"; path = "People/Classes/Cell/PeopleSearchTableViewCell+ConfigureForCollaborator.m"; sourceTree = "<group>"; };
 		D3AF9169180881A100F74776 /* PeopleBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleBaseViewController.h; path = "Classes/View Controllers/PeopleBaseViewController.h"; sourceTree = "<group>"; };
 		D3AF916A180881A100F74776 /* PeopleBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleBaseViewController.m; path = "Classes/View Controllers/PeopleBaseViewController.m"; sourceTree = "<group>"; };
 		D3AF916C180881C000F74776 /* PeopleInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleInitialViewController.h; path = "Classes/View Controllers/PeopleInitialViewController.h"; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 				D390642818143EE60070B6EF /* PeopleSearchDrawerCell.xib */,
 				D3CADB5E18102DD500CE61BB /* PeopleSearchDataSource.h */,
 				D3CADB5F18102DD600CE61BB /* PeopleSearchDataSource.m */,
+				D390642B181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.h */,
+				D390642C181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m */,
 			);
 			name = Search;
 			path = ..;
@@ -605,6 +610,7 @@
 				D36C0C4B180C3046008C8CBB /* PeopleLoginToSearchSegue.m in Sources */,
 				D3CADB5A18102A2400CE61BB /* PeopleSearchTextField.m in Sources */,
 				D35255DA18071C48003D88E2 /* PeopleAppDelegate.m in Sources */,
+				D390642D181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m in Sources */,
 				D36C0C4E180C3058008C8CBB /* PeopleSearchToProfileSegue.m in Sources */,
 				D36C0C48180C3036008C8CBB /* PeopleInitialToSearchSegue.m in Sources */,
 				D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */,

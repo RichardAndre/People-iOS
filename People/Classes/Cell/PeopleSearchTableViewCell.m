@@ -10,6 +10,8 @@
 #import "HHPanningTableViewCell_Private.h"
 
 @interface PeopleSearchTableViewCell ()
+@property (nonatomic, strong) UIView *persistentDrawerView;
+@property (nonatomic, strong) UIImage *image;
 
 @end
 @implementation PeopleSearchTableViewCell
@@ -48,10 +50,18 @@
                                                       owner:self
                                                     options:nil];
     UIView *drawerView = (UIView *)[nibViews objectAtIndex:0];
+    self.persistentDrawerView = drawerView;
     self.drawerView = drawerView;
 }
 static CGFloat const kPhotoOffset = 76.0;
 
+- (void)prepareForReuse
+{
+    self.directionMask = 1;
+    [super prepareForReuse];
+    self.drawerView = self.persistentDrawerView;
+    self.directionMask = 1;
+}
 
 #pragma mark - Superclass overriding
 
@@ -173,6 +183,5 @@ static CGFloat const kPhotoOffset = 76.0;
 		}
 	}
 }
-
 
 @end

@@ -17,8 +17,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *mobileLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
-+ (UINib *)nib;
+//Drawer
+@property (weak, nonatomic) IBOutlet UIButton *telButton;
+@property (weak, nonatomic) IBOutlet UIButton *mobileButton;
+@property (weak, nonatomic) IBOutlet UIButton *emailButton;
+@property (weak, nonatomic) IBOutlet UIButton *smsButton;
 
-- (void)setImage:(UIImage *)image;
+
++ (UINib *)nib;
 
 @end

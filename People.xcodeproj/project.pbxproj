@@ -52,6 +52,9 @@
 		D38E72921811D15B00CEB3FA /* PeopleSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D38E72911811D15B00CEB3FA /* PeopleSearchTableViewCell.xib */; };
 		D390642918143EE60070B6EF /* PeopleSearchDrawerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D390642818143EE60070B6EF /* PeopleSearchDrawerCell.xib */; };
 		D390642D181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m in Sources */ = {isa = PBXBuildFile; fileRef = D390642C181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m */; };
+		D390643018144F170070B6EF /* PeopleContactServices.m in Sources */ = {isa = PBXBuildFile; fileRef = D390642F18144F170070B6EF /* PeopleContactServices.m */; };
+		D3906436181450AB0070B6EF /* PeopleMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3906433181450AB0070B6EF /* PeopleMailViewController.m */; };
+		D3906437181450AB0070B6EF /* PeopleMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3906435181450AB0070B6EF /* PeopleMessagesViewController.m */; };
 		D3AF916B180881A200F74776 /* PeopleBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF916A180881A100F74776 /* PeopleBaseViewController.m */; };
 		D3AF916F180881C000F74776 /* PeopleInitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF916D180881C000F74776 /* PeopleInitialViewController.m */; };
 		D3AF9175180881DE00F74776 /* PeopleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AF9173180881DE00F74776 /* PeopleLoginViewController.m */; };
@@ -145,6 +148,12 @@
 		D390642A181440EC0070B6EF /* HHPanningTableViewCell_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HHPanningTableViewCell_Private.h; path = People/Classes/Cell/HHPanningTableViewCell_Private.h; sourceTree = "<group>"; };
 		D390642B181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "PeopleSearchTableViewCell+ConfigureForCollaborator.h"; path = "People/Classes/Cell/PeopleSearchTableViewCell+ConfigureForCollaborator.h"; sourceTree = "<group>"; };
 		D390642C181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PeopleSearchTableViewCell+ConfigureForCollaborator.m"; path = "People/Classes/Cell/PeopleSearchTableViewCell+ConfigureForCollaborator.m"; sourceTree = "<group>"; };
+		D390642E18144F170070B6EF /* PeopleContactServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleContactServices.h; path = Classes/PeopleContactServices.h; sourceTree = "<group>"; };
+		D390642F18144F170070B6EF /* PeopleContactServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleContactServices.m; path = Classes/PeopleContactServices.m; sourceTree = "<group>"; };
+		D3906432181450AB0070B6EF /* PeopleMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleMailViewController.h; path = "Classes/View Controllers/PeopleMailViewController.h"; sourceTree = "<group>"; };
+		D3906433181450AB0070B6EF /* PeopleMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleMailViewController.m; path = "Classes/View Controllers/PeopleMailViewController.m"; sourceTree = "<group>"; };
+		D3906434181450AB0070B6EF /* PeopleMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleMessagesViewController.h; path = "Classes/View Controllers/PeopleMessagesViewController.h"; sourceTree = "<group>"; };
+		D3906435181450AB0070B6EF /* PeopleMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleMessagesViewController.m; path = "Classes/View Controllers/PeopleMessagesViewController.m"; sourceTree = "<group>"; };
 		D3AF9169180881A100F74776 /* PeopleBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleBaseViewController.h; path = "Classes/View Controllers/PeopleBaseViewController.h"; sourceTree = "<group>"; };
 		D3AF916A180881A100F74776 /* PeopleBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleBaseViewController.m; path = "Classes/View Controllers/PeopleBaseViewController.m"; sourceTree = "<group>"; };
 		D3AF916C180881C000F74776 /* PeopleInitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleInitialViewController.h; path = "Classes/View Controllers/PeopleInitialViewController.h"; sourceTree = "<group>"; };
@@ -259,6 +268,7 @@
 		D35255CF18071C48003D88E2 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				D390643118144F1B0070B6EF /* Actions */,
 				D38E728E1811C08500CEB3FA /* Search */,
 				D3C04636180F2502002E09ED /* Parsers */,
 				D349CCF6180EDF7400F3D6B1 /* Categories */,
@@ -410,9 +420,22 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D390643118144F1B0070B6EF /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				D390642E18144F170070B6EF /* PeopleContactServices.h */,
+				D390642F18144F170070B6EF /* PeopleContactServices.m */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
 		D3AF9171180881D100F74776 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D3906432181450AB0070B6EF /* PeopleMailViewController.h */,
+				D3906433181450AB0070B6EF /* PeopleMailViewController.m */,
+				D3906434181450AB0070B6EF /* PeopleMessagesViewController.h */,
+				D3906435181450AB0070B6EF /* PeopleMessagesViewController.m */,
 				D3AF916C180881C000F74776 /* PeopleInitialViewController.h */,
 				D3AF916D180881C000F74776 /* PeopleInitialViewController.m */,
 				D3AF9169180881A100F74776 /* PeopleBaseViewController.h */,
@@ -602,10 +625,12 @@
 				D3AF916B180881A200F74776 /* PeopleBaseViewController.m in Sources */,
 				D35255D618071C48003D88E2 /* main.m in Sources */,
 				D352561B1807213A003D88E2 /* PeoplePreferences.m in Sources */,
+				D390643018144F170070B6EF /* PeopleContactServices.m in Sources */,
 				D3C04635180F24FD002E09ED /* PeopleJSONParser.m in Sources */,
 				D3AF916F180881C000F74776 /* PeopleInitialViewController.m in Sources */,
 				D349CCFC180EDF7400F3D6B1 /* NSString+PhoneNumberFormatter.m in Sources */,
 				D349CCFB180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m in Sources */,
+				D3906437181450AB0070B6EF /* PeopleMessagesViewController.m in Sources */,
 				D3CADB5718101AFD00CE61BB /* PeopleHTTPSessionManager.m in Sources */,
 				D36C0C4B180C3046008C8CBB /* PeopleLoginToSearchSegue.m in Sources */,
 				D3CADB5A18102A2400CE61BB /* PeopleSearchTextField.m in Sources */,
@@ -614,6 +639,7 @@
 				D36C0C4E180C3058008C8CBB /* PeopleSearchToProfileSegue.m in Sources */,
 				D36C0C48180C3036008C8CBB /* PeopleInitialToSearchSegue.m in Sources */,
 				D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */,
+				D3906436181450AB0070B6EF /* PeopleMailViewController.m in Sources */,
 				D3AF917F180881F800F74776 /* PeopleSearchViewController.m in Sources */,
 				D3CADB6018102DD600CE61BB /* PeopleSearchDataSource.m in Sources */,
 				D349CCF5180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m in Sources */,

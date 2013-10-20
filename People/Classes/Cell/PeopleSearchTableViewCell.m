@@ -11,7 +11,6 @@
 
 @interface PeopleSearchTableViewCell ()
 @property (nonatomic, strong) UIView *persistentDrawerView;
-@property (nonatomic, strong) UIImage *image;
 
 @end
 @implementation PeopleSearchTableViewCell
@@ -57,12 +56,24 @@ static CGFloat const kPhotoOffset = 76.0;
 
 - (void)prepareForReuse
 {
-    self.directionMask = 1;
     [super prepareForReuse];
     self.drawerView = self.persistentDrawerView;
     self.directionMask = 1;
 }
 
+#pragma mark - Actions
+
+- (IBAction)telButtonPressed:(id)sender {
+}
+
+- (IBAction)mobileButtonPressed:(id)sender {
+}
+
+- (IBAction)emailButtonPressed:(id)sender {
+}
+
+- (IBAction)smsButtonPressed:(id)sender {
+}
 #pragma mark - Superclass overriding
 
 /*

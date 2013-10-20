@@ -50,7 +50,7 @@
     NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"PeopleSearchDrawerCell"
                                                       owner:self
                                                     options:nil];
-    UIView *drawerView = (UIView *)[nibViews objectAtIndex:0];
+    UIView *drawerView = (UIView *)nibViews[0];
     self.persistentDrawerView = drawerView;
     self.drawerView = drawerView;
 }

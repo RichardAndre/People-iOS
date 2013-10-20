@@ -11,6 +11,10 @@
 		AAB3A9B7180C81AA00EBF173 /* PeopleCollaborator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3A9B5180C81AA00EBF173 /* PeopleCollaborator.m */; };
 		AAB3A9BB180C81EB00EBF173 /* PeopleURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3A9BA180C81EB00EBF173 /* PeopleURLSessionManager.m */; };
 		D332D2ED180D87C2006F61B5 /* PeopleStoryboardTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D332D2EC180D87C2006F61B5 /* PeopleStoryboardTest.m */; };
+		D3398B8D1814713800A7627A /* PeopleProfileDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3398B8C1814713800A7627A /* PeopleProfileDetailsView.m */; };
+		D3398B8F1814714800A7627A /* PeopleProfileDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3398B8E1814714800A7627A /* PeopleProfileDetailsView.xib */; };
+		D3398B91181475D100A7627A /* PeopleProfileContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3398B90181475D100A7627A /* PeopleProfileContactView.xib */; };
+		D3398B94181475EE00A7627A /* PeopleProfileContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3398B93181475EE00A7627A /* PeopleProfileContactView.m */; };
 		D349CCEB180DCF9F00F3D6B1 /* PeopleThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCEA180DCF9F00F3D6B1 /* PeopleThemeManager.m */; };
 		D349CCEE180DD1B300F3D6B1 /* PeopleBasicTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCED180DD1B300F3D6B1 /* PeopleBasicTheme.m */; };
 		D349CCF2180DD94200F3D6B1 /* PeopleValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCF1180DD94200F3D6B1 /* PeopleValidation.m */; };
@@ -88,6 +92,12 @@
 		AAB3A9B9180C81EB00EBF173 /* PeopleURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleURLSessionManager.h; path = Classes/Connection/PeopleURLSessionManager.h; sourceTree = "<group>"; };
 		AAB3A9BA180C81EB00EBF173 /* PeopleURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleURLSessionManager.m; path = Classes/Connection/PeopleURLSessionManager.m; sourceTree = "<group>"; };
 		D332D2EC180D87C2006F61B5 /* PeopleStoryboardTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleStoryboardTest.m; sourceTree = "<group>"; };
+		D3398B8B1814713800A7627A /* PeopleProfileDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleProfileDetailsView.h; path = Classes/Views/PeopleProfileDetailsView.h; sourceTree = "<group>"; };
+		D3398B8C1814713800A7627A /* PeopleProfileDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleProfileDetailsView.m; path = Classes/Views/PeopleProfileDetailsView.m; sourceTree = "<group>"; };
+		D3398B8E1814714800A7627A /* PeopleProfileDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleProfileDetailsView.xib; path = Classes/Views/PeopleProfileDetailsView.xib; sourceTree = "<group>"; };
+		D3398B90181475D100A7627A /* PeopleProfileContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleProfileContactView.xib; path = Classes/Views/PeopleProfileContactView.xib; sourceTree = "<group>"; };
+		D3398B92181475EE00A7627A /* PeopleProfileContactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleProfileContactView.h; path = Classes/Views/PeopleProfileContactView.h; sourceTree = "<group>"; };
+		D3398B93181475EE00A7627A /* PeopleProfileContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleProfileContactView.m; path = Classes/Views/PeopleProfileContactView.m; sourceTree = "<group>"; };
 		D349CCE9180DCF9F00F3D6B1 /* PeopleThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleThemeManager.h; path = Classes/Theme/PeopleThemeManager.h; sourceTree = "<group>"; };
 		D349CCEA180DCF9F00F3D6B1 /* PeopleThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleThemeManager.m; path = Classes/Theme/PeopleThemeManager.m; sourceTree = "<group>"; };
 		D349CCEC180DD1B300F3D6B1 /* PeopleBasicTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleBasicTheme.h; path = Classes/Theme/PeopleBasicTheme.h; sourceTree = "<group>"; };
@@ -279,6 +289,12 @@
 				D35255D018071C48003D88E2 /* Supporting Files */,
 				D3AF9171180881D100F74776 /* View Controllers */,
 				D3CADB5B18102A2A00CE61BB /* Components */,
+				D3398B8B1814713800A7627A /* PeopleProfileDetailsView.h */,
+				D3398B8C1814713800A7627A /* PeopleProfileDetailsView.m */,
+				D3398B8E1814714800A7627A /* PeopleProfileDetailsView.xib */,
+				D3398B92181475EE00A7627A /* PeopleProfileContactView.h */,
+				D3398B93181475EE00A7627A /* PeopleProfileContactView.m */,
+				D3398B90181475D100A7627A /* PeopleProfileContactView.xib */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -565,6 +581,8 @@
 				D352560D18072008003D88E2 /* Roboto-Italic.ttf in Resources */,
 				D352560C18072008003D88E2 /* Roboto-BoldItalic.ttf in Resources */,
 				D390642918143EE60070B6EF /* PeopleSearchDrawerCell.xib in Resources */,
+				D3398B91181475D100A7627A /* PeopleProfileContactView.xib in Resources */,
+				D3398B8F1814714800A7627A /* PeopleProfileDetailsView.xib in Resources */,
 				D352561018072008003D88E2 /* Roboto-Medium.ttf in Resources */,
 				D352561218072008003D88E2 /* Roboto-Regular.ttf in Resources */,
 				D352560918072008003D88E2 /* Roboto-Black.ttf in Resources */,
@@ -632,11 +650,13 @@
 				D349CCFB180EDF7400F3D6B1 /* NSNumber+PhoneNumberFormatter.m in Sources */,
 				D3906437181450AB0070B6EF /* PeopleMessagesViewController.m in Sources */,
 				D3CADB5718101AFD00CE61BB /* PeopleHTTPSessionManager.m in Sources */,
+				D3398B8D1814713800A7627A /* PeopleProfileDetailsView.m in Sources */,
 				D36C0C4B180C3046008C8CBB /* PeopleLoginToSearchSegue.m in Sources */,
 				D3CADB5A18102A2400CE61BB /* PeopleSearchTextField.m in Sources */,
 				D35255DA18071C48003D88E2 /* PeopleAppDelegate.m in Sources */,
 				D390642D181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m in Sources */,
 				D36C0C4E180C3058008C8CBB /* PeopleSearchToProfileSegue.m in Sources */,
+				D3398B94181475EE00A7627A /* PeopleProfileContactView.m in Sources */,
 				D36C0C48180C3036008C8CBB /* PeopleInitialToSearchSegue.m in Sources */,
 				D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */,
 				D3906436181450AB0070B6EF /* PeopleMailViewController.m in Sources */,

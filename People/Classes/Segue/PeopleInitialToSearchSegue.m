@@ -16,7 +16,7 @@
     UIViewController *destination = self.destinationViewController;
     
     [source.navigationController pushViewController:destination
-                                           animated:YES];
+                                           animated:NO];
     
     
 }

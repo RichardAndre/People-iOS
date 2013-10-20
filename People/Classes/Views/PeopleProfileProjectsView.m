@@ -47,7 +47,7 @@
 - (void)redraw
 {
     NSString *currentText = NSLocalizedString(@"Current", @"Current Projects Label on Profile Screen");
-    currentText = [currentText stringByAppendingString:@"\n "];
+    currentText = [currentText stringByAppendingString:@"\n"];
     NSString *pastText = NSLocalizedString(@"Past", @"Past Projects Label on Profile Screen");
     pastText = [pastText stringByAppendingString:@"\n"];
     

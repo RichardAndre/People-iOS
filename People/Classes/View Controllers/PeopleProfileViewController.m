@@ -9,6 +9,9 @@
 #import "PeopleProfileViewController.h"
 #import "PeopleProfileDetailsView.h"
 #import "PeopleProfileContactView.h"
+#import "PeopleProfileCoachView.h"
+#import "PeopleProfileTeamView.h"
+#import "PeopleProfileProjectsView.h"
 #import "PeopleServices.h"
 #import "PeopleContactServices.h"
 #import "NSString+PhoneNumberFormatter.h"
@@ -18,6 +21,10 @@
 @property (nonatomic, strong) PeopleProfileContactView *phoneContactView;
 @property (nonatomic, strong) PeopleProfileContactView *mobileContactView;
 @property (nonatomic, strong) PeopleProfileContactView *emailContactView;
+@property (nonatomic, strong) PeopleProfileCoachView *coachView;
+@property (nonatomic, strong) PeopleProfileTeamView *teamView;
+@property (nonatomic, strong) PeopleProfileProjectsView *projectsView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 @end
 
@@ -35,6 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.scrollView];
     [self createViews];
     // Do any additional setup after loading the view from its nib.
 }
@@ -46,19 +55,72 @@
     [self populate];
 }
 
+#pragma mark - View Creation
 - (void)createViews
 {
     CGFloat deltaY = 0;
     deltaY = self.navigationController.navigationBar.frame.size.height + 20.0; //statusbar
     [self createDetailViewStartingAtY:deltaY];
     deltaY += self.detailView.frame.size.height;
+    
     [self createPhoneContactViewStartingAtY:deltaY];
     deltaY += self.phoneContactView.frame.size.height;
+    
     [self createMobileContactViewStartingAtY:deltaY];
     deltaY += self.mobileContactView.frame.size.height;
+    
     [self createEmailContactViewStartingAtY:deltaY];
     deltaY += self.emailContactView.frame.size.height;
+    
+    [self createCoachViewStartingAtY:deltaY];
+    deltaY += self.coachView.frame.size.height;
+    
+    [self createTeamViewStartingAtY:deltaY];
+    deltaY += self.teamView.frame.size.height;
+    
+    [self createProjectsViewStartingAtY:deltaY];
+    deltaY += self.projectsView.frame.size.height;
+    
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width, deltaY)];
+}
 
+- (void)createCoachViewStartingAtY:(CGFloat)y
+{
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"PeopleProfileCoachView"
+                                                      owner:self
+                                                    options:nil];
+    PeopleProfileCoachView *coachView = (PeopleProfileCoachView *)nibViews[0];
+    [coachView setFrame:CGRectMake(0, y,
+                                   coachView.frame.size.width, coachView.frame.size.height)];
+    
+    [self.scrollView addSubview:coachView];
+    self.coachView = coachView;
+}
+
+- (void)createTeamViewStartingAtY:(CGFloat)y
+{
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"PeopleProfileTeamView"
+                                                      owner:self
+                                                    options:nil];
+    PeopleProfileTeamView *teamView = (PeopleProfileTeamView *)nibViews[0];
+    [teamView setFrame:CGRectMake(0, y,
+                                  teamView.frame.size.width, teamView.frame.size.height)];
+    
+    [self.scrollView addSubview:teamView];
+    self.teamView = teamView;
+}
+
+- (void)createProjectsViewStartingAtY:(CGFloat)y
+{
+    NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:@"PeopleProfileProjectsView"
+                                                      owner:self
+                                                    options:nil];
+    PeopleProfileProjectsView *projectsView = (PeopleProfileProjectsView *)nibViews[0];
+    [projectsView setFrame:CGRectMake(0, y,
+                                      projectsView.frame.size.width, projectsView.frame.size.height)];
+
+    [self.scrollView addSubview:projectsView];
+    self.projectsView = projectsView;
 }
 
 - (void)createPhoneContactViewStartingAtY:(CGFloat)y
@@ -69,7 +131,7 @@
     PeopleProfileContactView *phoneContactView = (PeopleProfileContactView *)nibViews[0];
     [phoneContactView setFrame:CGRectMake(0, y,
                                     phoneContactView.frame.size.width, phoneContactView.frame.size.height)];
-    [self.view addSubview:phoneContactView];
+    [self.scrollView addSubview:phoneContactView];
     self.phoneContactView = phoneContactView;
 
     
@@ -83,7 +145,7 @@
     PeopleProfileContactView *mobileContactView = (PeopleProfileContactView *)nibViews[0];
     [mobileContactView setFrame:CGRectMake(0, y,
                                           mobileContactView.frame.size.width, mobileContactView.frame.size.height)];
-    [self.view addSubview:mobileContactView];
+    [self.scrollView addSubview:mobileContactView];
     self.mobileContactView = mobileContactView;
 }
 
@@ -95,7 +157,7 @@
     PeopleProfileContactView *emailContactView = (PeopleProfileContactView *)nibViews[0];
     [emailContactView setFrame:CGRectMake(0, y,
                                           emailContactView.frame.size.width, emailContactView.frame.size.height)];
-    [self.view addSubview:emailContactView];
+    [self.scrollView addSubview:emailContactView];
     self.emailContactView = emailContactView;
 }
 
@@ -107,7 +169,7 @@
     PeopleProfileDetailsView *detailView = (PeopleProfileDetailsView *)nibViews[0];
     [detailView setFrame:CGRectMake(0, y,
                                     detailView.frame.size.width, detailView.frame.size.height)];
-    [self.view addSubview:detailView];
+    [self.scrollView addSubview:detailView];
     self.detailView = detailView;
 
 

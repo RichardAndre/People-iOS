@@ -15,6 +15,12 @@
 		D3398B8F1814714800A7627A /* PeopleProfileDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3398B8E1814714800A7627A /* PeopleProfileDetailsView.xib */; };
 		D3398B91181475D100A7627A /* PeopleProfileContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3398B90181475D100A7627A /* PeopleProfileContactView.xib */; };
 		D3398B94181475EE00A7627A /* PeopleProfileContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3398B93181475EE00A7627A /* PeopleProfileContactView.m */; };
+		D3398B9618147C2100A7627A /* PeopleProfileCoachView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3398B9518147C2100A7627A /* PeopleProfileCoachView.xib */; };
+		D3398B9818147C2E00A7627A /* PeopleProfileTeamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3398B9718147C2E00A7627A /* PeopleProfileTeamView.xib */; };
+		D3398B9A18147C4100A7627A /* PeopleProfileProjectsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3398B9918147C4100A7627A /* PeopleProfileProjectsView.xib */; };
+		D3398B9D18147C6200A7627A /* PeopleProfileProjectsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3398B9C18147C6200A7627A /* PeopleProfileProjectsView.m */; };
+		D3398BA018147C7600A7627A /* PeopleProfileTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3398B9F18147C7600A7627A /* PeopleProfileTeamView.m */; };
+		D3398BA318147C8600A7627A /* PeopleProfileCoachView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3398BA218147C8600A7627A /* PeopleProfileCoachView.m */; };
 		D349CCEB180DCF9F00F3D6B1 /* PeopleThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCEA180DCF9F00F3D6B1 /* PeopleThemeManager.m */; };
 		D349CCEE180DD1B300F3D6B1 /* PeopleBasicTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCED180DD1B300F3D6B1 /* PeopleBasicTheme.m */; };
 		D349CCF2180DD94200F3D6B1 /* PeopleValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = D349CCF1180DD94200F3D6B1 /* PeopleValidation.m */; };
@@ -98,6 +104,15 @@
 		D3398B90181475D100A7627A /* PeopleProfileContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleProfileContactView.xib; path = Classes/Views/PeopleProfileContactView.xib; sourceTree = "<group>"; };
 		D3398B92181475EE00A7627A /* PeopleProfileContactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleProfileContactView.h; path = Classes/Views/PeopleProfileContactView.h; sourceTree = "<group>"; };
 		D3398B93181475EE00A7627A /* PeopleProfileContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleProfileContactView.m; path = Classes/Views/PeopleProfileContactView.m; sourceTree = "<group>"; };
+		D3398B9518147C2100A7627A /* PeopleProfileCoachView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleProfileCoachView.xib; path = Classes/Views/PeopleProfileCoachView.xib; sourceTree = "<group>"; };
+		D3398B9718147C2E00A7627A /* PeopleProfileTeamView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleProfileTeamView.xib; path = Classes/Views/PeopleProfileTeamView.xib; sourceTree = "<group>"; };
+		D3398B9918147C4100A7627A /* PeopleProfileProjectsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleProfileProjectsView.xib; path = Classes/Views/PeopleProfileProjectsView.xib; sourceTree = "<group>"; };
+		D3398B9B18147C6200A7627A /* PeopleProfileProjectsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleProfileProjectsView.h; path = Classes/Views/PeopleProfileProjectsView.h; sourceTree = "<group>"; };
+		D3398B9C18147C6200A7627A /* PeopleProfileProjectsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleProfileProjectsView.m; path = Classes/Views/PeopleProfileProjectsView.m; sourceTree = "<group>"; };
+		D3398B9E18147C7600A7627A /* PeopleProfileTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleProfileTeamView.h; path = Classes/Views/PeopleProfileTeamView.h; sourceTree = "<group>"; };
+		D3398B9F18147C7600A7627A /* PeopleProfileTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleProfileTeamView.m; path = Classes/Views/PeopleProfileTeamView.m; sourceTree = "<group>"; };
+		D3398BA118147C8600A7627A /* PeopleProfileCoachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleProfileCoachView.h; path = Classes/Views/PeopleProfileCoachView.h; sourceTree = "<group>"; };
+		D3398BA218147C8600A7627A /* PeopleProfileCoachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleProfileCoachView.m; path = Classes/Views/PeopleProfileCoachView.m; sourceTree = "<group>"; };
 		D349CCE9180DCF9F00F3D6B1 /* PeopleThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleThemeManager.h; path = Classes/Theme/PeopleThemeManager.h; sourceTree = "<group>"; };
 		D349CCEA180DCF9F00F3D6B1 /* PeopleThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleThemeManager.m; path = Classes/Theme/PeopleThemeManager.m; sourceTree = "<group>"; };
 		D349CCEC180DD1B300F3D6B1 /* PeopleBasicTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleBasicTheme.h; path = Classes/Theme/PeopleBasicTheme.h; sourceTree = "<group>"; };
@@ -228,6 +243,28 @@
 			name = Connection;
 			sourceTree = "<group>";
 		};
+		D3398BA418147C8B00A7627A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D3398B8B1814713800A7627A /* PeopleProfileDetailsView.h */,
+				D3398B8C1814713800A7627A /* PeopleProfileDetailsView.m */,
+				D3398B8E1814714800A7627A /* PeopleProfileDetailsView.xib */,
+				D3398B92181475EE00A7627A /* PeopleProfileContactView.h */,
+				D3398B93181475EE00A7627A /* PeopleProfileContactView.m */,
+				D3398B90181475D100A7627A /* PeopleProfileContactView.xib */,
+				D3398B9518147C2100A7627A /* PeopleProfileCoachView.xib */,
+				D3398BA118147C8600A7627A /* PeopleProfileCoachView.h */,
+				D3398BA218147C8600A7627A /* PeopleProfileCoachView.m */,
+				D3398B9718147C2E00A7627A /* PeopleProfileTeamView.xib */,
+				D3398B9E18147C7600A7627A /* PeopleProfileTeamView.h */,
+				D3398B9F18147C7600A7627A /* PeopleProfileTeamView.m */,
+				D3398B9918147C4100A7627A /* PeopleProfileProjectsView.xib */,
+				D3398B9B18147C6200A7627A /* PeopleProfileProjectsView.h */,
+				D3398B9C18147C6200A7627A /* PeopleProfileProjectsView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D349CCF6180EDF7400F3D6B1 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,12 +326,7 @@
 				D35255D018071C48003D88E2 /* Supporting Files */,
 				D3AF9171180881D100F74776 /* View Controllers */,
 				D3CADB5B18102A2A00CE61BB /* Components */,
-				D3398B8B1814713800A7627A /* PeopleProfileDetailsView.h */,
-				D3398B8C1814713800A7627A /* PeopleProfileDetailsView.m */,
-				D3398B8E1814714800A7627A /* PeopleProfileDetailsView.xib */,
-				D3398B92181475EE00A7627A /* PeopleProfileContactView.h */,
-				D3398B93181475EE00A7627A /* PeopleProfileContactView.m */,
-				D3398B90181475D100A7627A /* PeopleProfileContactView.xib */,
+				D3398BA418147C8B00A7627A /* Views */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -569,11 +601,13 @@
 			files = (
 				D352561418072008003D88E2 /* Roboto-ThinItalic.ttf in Resources */,
 				D352561318072008003D88E2 /* Roboto-Thin.ttf in Resources */,
+				D3398B9A18147C4100A7627A /* PeopleProfileProjectsView.xib in Resources */,
 				D352560818072008003D88E2 /* LICENSE.txt in Resources */,
 				D35255D418071C48003D88E2 /* InfoPlist.strings in Resources */,
 				D352560F18072008003D88E2 /* Roboto-LightItalic.ttf in Resources */,
 				D352560B18072008003D88E2 /* Roboto-Bold.ttf in Resources */,
 				D352561118072008003D88E2 /* Roboto-MediumItalic.ttf in Resources */,
+				D3398B9618147C2100A7627A /* PeopleProfileCoachView.xib in Resources */,
 				D38E72921811D15B00CEB3FA /* PeopleSearchTableViewCell.xib in Resources */,
 				D352560A18072008003D88E2 /* Roboto-BlackItalic.ttf in Resources */,
 				D36C0C42180C205C008C8CBB /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -586,6 +620,7 @@
 				D352561018072008003D88E2 /* Roboto-Medium.ttf in Resources */,
 				D352561218072008003D88E2 /* Roboto-Regular.ttf in Resources */,
 				D352560918072008003D88E2 /* Roboto-Black.ttf in Resources */,
+				D3398B9818147C2E00A7627A /* PeopleProfileTeamView.xib in Resources */,
 				D352560E18072008003D88E2 /* Roboto-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,7 +697,9 @@
 				D3906436181450AB0070B6EF /* PeopleMailViewController.m in Sources */,
 				D3AF917F180881F800F74776 /* PeopleSearchViewController.m in Sources */,
 				D3CADB6018102DD600CE61BB /* PeopleSearchDataSource.m in Sources */,
+				D3398BA018147C7600A7627A /* PeopleProfileTeamView.m in Sources */,
 				D349CCF5180EDECE00F3D6B1 /* PeopleCollaborator+PopulateFromServiceResponse.m in Sources */,
+				D3398B9D18147C6200A7627A /* PeopleProfileProjectsView.m in Sources */,
 				AAB3A9BB180C81EB00EBF173 /* PeopleURLSessionManager.m in Sources */,
 				D36C0C45180C2F76008C8CBB /* PeopleInitialToLoginSegue.m in Sources */,
 				D3CADB5318101AD200CE61BB /* PeopleServices.m in Sources */,
@@ -670,6 +707,7 @@
 				AAB3A9B6180C81AA00EBF173 /* PeopleCollaborator.m in Sources */,
 				D38E728D1811C06D00CEB3FA /* PeopleSearchTableViewCell.m in Sources */,
 				D3AF9175180881DE00F74776 /* PeopleLoginViewController.m in Sources */,
+				D3398BA318147C8600A7627A /* PeopleProfileCoachView.m in Sources */,
 				D349CCF2180DD94200F3D6B1 /* PeopleValidation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

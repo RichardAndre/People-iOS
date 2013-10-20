@@ -88,7 +88,7 @@
     [self.currentLabel sizeToFit];
     [self.pastLabel sizeToFit];
     [self.pastLabel setFrame:CGRectMake(self.pastLabel.frame.origin.x,
-                                       self.currentLabel.frame.size.height + 20.0,
+                                       self.currentLabel.frame.size.height + 30.0,
                                         self.pastLabel.frame.size.width, self.pastLabel.frame.size.height)];
 
 }

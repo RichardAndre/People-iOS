@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (strong, nonatomic) PeopleSearchDataSource *datasource;
 @property (strong, nonatomic) NSIndexPath *selectedIndexPath;
+@property (weak, nonatomic) IBOutlet UIView *searchView;
 
 @end
 
@@ -37,6 +38,7 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
 {
     [super viewDidLoad];
     [self setupTableView];
+    [self bounceSearchView];
     // Do any additional setup after loading the view from its nib.
 }
 - (void)viewDidAppear:(BOOL)animated
@@ -48,6 +50,22 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
                                              animated:YES];
         self.selectedIndexPath = nil;
     }
+}
+
+- (void)bounceSearchView
+{
+    CGRect oldFrame = self.searchView.frame;
+    [self.searchView setFrame:CGRectMake(oldFrame.origin.x,
+                                         oldFrame.origin.y - oldFrame.size.height,
+                                         oldFrame.size.width,
+                                         oldFrame.size.height)];
+    
+    [UIView animateWithDuration:1.0 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:25.0 options:0 animations:^{
+        
+        [self.searchView setFrame:oldFrame];
+    } completion:^(BOOL finished) {
+        [[self searchTextField] becomeFirstResponder];
+    }];
 }
 
 - (void)setupTableView
@@ -110,7 +128,14 @@ static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
     [PeopleServices colaboradoresForSearchTerm:self.searchTextField.text
                                        success:^(NSArray *colaboradores) {
                                            self.datasource.items = [colaboradores copy];
-                                           
+                                           if ([colaboradores count] > 0)
+                                           {
+                                               self.resultsTableView.hidden = NO;
+                                           }
+                                           else
+                                           {
+                                               self.resultsTableView.hidden = YES;
+                                           }
                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                [self.resultsTableView reloadData];
                                            });

@@ -188,8 +188,8 @@
                                self.collaborator.mentorName = collaboratorProfile.mentorName;
                                [self.coachView.nameButton setTitle:self.collaborator.mentorName
                                                           forState:UIControlStateNormal];
-                               //                               [self populateTeamView];
-                               //[self populateProjectsView];]
+                               [self populateTeamView];
+                               [self populateProjectsView];
                            } failure:^(NSError *error) {
                                
                            }];
@@ -203,6 +203,36 @@
     [self populateMobileContactView];
     [self populateEmailContactView];
     [self populateCoachView];
+}
+
+- (void)populateTeamView
+{
+    NSArray *teamMembers = [self.collaborator.teammates allObjects];
+    [self.teamView setTeamMembers:teamMembers];
+    
+    NSDictionary *member;
+    NSString *memberLogin;
+    for (NSInteger i = 0; i < [self.teamView maxCount]; i++)
+    {
+        member = teamMembers[i];
+        memberLogin = member[@"login"];
+        
+        [PeopleServices photoForUser:memberLogin
+                             success:^(UIImage *image) {
+                                 if ([image isKindOfClass:[UIImage class]])
+                                 {
+                                     [self.teamView setTeamMemberPicture:image forIndex:i];
+                                 }
+                             } failure:^(NSError *error) {
+                                 
+                             }];
+    }
+
+}
+
+- (void)populateProjectsView
+{
+    
 }
 
 - (void)populateCoachView

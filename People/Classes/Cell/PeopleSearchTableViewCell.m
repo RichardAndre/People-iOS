@@ -41,6 +41,9 @@
 - (void)setup
 {
     [self setupDrawer];
+    self.photoImageView.layer.cornerRadius = self.photoImageView.frame.size.height/2;
+    [self.photoImageView setClipsToBounds:YES];
+
 }
 
 - (void)setupDrawer

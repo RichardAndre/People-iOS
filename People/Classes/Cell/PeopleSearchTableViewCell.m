@@ -8,6 +8,8 @@
 
 #import "PeopleSearchTableViewCell.h"
 #import "HHPanningTableViewCell_Private.h"
+#import "PeopleContactServices.h"
+#import "NSString+PhoneNumberFormatter.h"
 
 @interface PeopleSearchTableViewCell ()
 @property (nonatomic, strong) UIView *persistentDrawerView;
@@ -63,16 +65,32 @@ static CGFloat const kPhotoOffset = 76.0;
 
 #pragma mark - Actions
 
-- (IBAction)telButtonPressed:(id)sender {
+- (IBAction)telButtonPressed:(id)sender
+{
+    NSNumber *number = @([self.telLabel.text integerValue]);
+    [[PeopleContactServices sharedServices] callPhoneNumber:number];
 }
 
-- (IBAction)mobileButtonPressed:(id)sender {
+- (IBAction)mobileButtonPressed:(id)sender
+{
+    NSNumber *number = @([self.mobileLabel.text integerValue]);
+    [[PeopleContactServices sharedServices] callPhoneNumber:number];
 }
 
-- (IBAction)emailButtonPressed:(id)sender {
+- (IBAction)emailButtonPressed:(id)sender
+{
+    NSString *recipient = [self.loginLabel.text ciandtEmail];
+    [[PeopleContactServices sharedServices] presentEmailComposerOnViewController:self.viewController
+                                                                  withRecipients:@[recipient]];
+
 }
 
-- (IBAction)smsButtonPressed:(id)sender {
+- (IBAction)smsButtonPressed:(id)sender
+{
+    NSString *recipient = self.mobileLabel.text;
+    [[PeopleContactServices sharedServices] presentSMSComposerOnViewController:self.viewController
+                                                                withRecipients:@[recipient]];
+
 }
 #pragma mark - Superclass overriding
 

@@ -49,12 +49,12 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     }
 }
 
-
 - (void)setupTableView
 {
     
     TableViewCellConfigureBlock configureCell = ^(PeopleSearchTableViewCell *cell, PeopleCollaborator *collaborator) {
         [cell configureForCollaborator:collaborator];
+        cell.viewController = self;
 
         [PeopleServices photoForUser:collaborator.login
                              success:^(UIImage *image) {

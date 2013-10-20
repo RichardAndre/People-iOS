@@ -10,6 +10,8 @@
 
 @interface PeopleSearchTableViewCell : HHPanningTableViewCell
 
+@property (nonatomic, strong) UIViewController *viewController;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;

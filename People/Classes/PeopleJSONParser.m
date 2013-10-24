@@ -14,11 +14,14 @@
 {
     NSDictionary *responseDictionary = serviceResponse;
     
-    NSArray *responseData = [responseDictionary objectForKey:@"data"];
     NSArray *colaboradores = @[];
-    if ([responseData isKindOfClass:[NSArray class]])
-    {
-        colaboradores = [PeopleCollaborator collaboratorsFromSearchResponse:responseData];
+    
+    if ([responseDictionary isKindOfClass:[NSDictionary class]]) {
+        NSArray *responseData = [responseDictionary objectForKey:@"data"];
+        if ([responseData isKindOfClass:[NSArray class]])
+        {
+            colaboradores = [PeopleCollaborator collaboratorsFromSearchResponse:responseData];
+        }
     }
     return colaboradores;
 }

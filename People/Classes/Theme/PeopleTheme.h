@@ -10,4 +10,15 @@
 
 @protocol PeopleTheme <NSObject>
 
+- (UIFont *)regularFontWithSize:(CGFloat)size;
+- (UIFont *)lightFontWithSize:(CGFloat)size;
+
+
+- (UIColor *)primaryColorLight;
+- (UIColor *)primaryColorDark;
+- (UIColor *)secondaryColor;
+- (UIColor *)darkColor;
+
+
+
 @end

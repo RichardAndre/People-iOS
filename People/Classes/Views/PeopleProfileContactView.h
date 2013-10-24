@@ -14,4 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *button1;
 @property (weak, nonatomic) IBOutlet UIButton *button2;
 
+-(void)configureForEmail;
+- (void)configureForPhone;
+- (void)configureForMobile;
 @end

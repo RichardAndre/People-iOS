@@ -10,6 +10,7 @@
 #import "HHPanningTableViewCell_Private.h"
 #import "PeopleContactServices.h"
 #import "NSString+PhoneNumberFormatter.h"
+#import "PeopleThemeManager.h"
 
 @interface PeopleSearchTableViewCell ()
 @property (nonatomic, strong) UIView *persistentDrawerView;
@@ -44,6 +45,15 @@
     self.photoImageView.layer.cornerRadius = self.photoImageView.frame.size.height/2;
     [self.photoImageView setClipsToBounds:YES];
 
+}
+- (void)adjustFonts
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.nameLabel setFont:[theme regularFontWithSize:self.nameLabel.font.pointSize]];
+    [self.roleLabel setFont:[theme regularFontWithSize:self.roleLabel.font.pointSize]];
+    [self.loginLabel setFont:[theme regularFontWithSize:self.loginLabel.font.pointSize]];
+    [self.telLabel setFont:[theme regularFontWithSize:self.telLabel.font.pointSize]];
+    [self.mobileLabel setFont:[theme regularFontWithSize:self.mobileLabel.font.pointSize]];
 }
 
 - (void)setupDrawer

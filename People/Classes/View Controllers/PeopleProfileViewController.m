@@ -266,7 +266,7 @@
 {
     self.phoneContactView.titleLabel.text = NSLocalizedString(@"Phone", @"");
     self.phoneContactView.contentLabel.text = [self.collaborator.phone stringValue];
-    [self.phoneContactView.button2 setHidden:YES];
+    [self.phoneContactView configureForPhone];
     [self.phoneContactView.button1 addTarget:self
                                       action:@selector(callPhone)
                             forControlEvents:UIControlEventTouchUpInside];
@@ -276,7 +276,7 @@
 {
     self.mobileContactView.titleLabel.text = NSLocalizedString(@"Mobile", @"");
     self.mobileContactView.contentLabel.text = [self.collaborator.mobile stringValue];
-    
+    [self.mobileContactView configureForMobile];
     [self.mobileContactView.button1 addTarget:self
                                        action:@selector(callMobile)
                              forControlEvents:UIControlEventTouchUpInside];
@@ -292,7 +292,7 @@
     self.emailContactView.titleLabel.text = NSLocalizedString(@"E-mail", @"");
     self.emailContactView.contentLabel.text = [self.collaborator.login ciandtEmail];
     
-    [self.emailContactView.button2 setHidden:YES];
+    [self.emailContactView configureForEmail];
     [self.emailContactView.button1 addTarget:self
                                        action:@selector(email)
                              forControlEvents:UIControlEventTouchUpInside];

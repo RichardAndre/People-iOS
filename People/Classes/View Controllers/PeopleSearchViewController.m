@@ -11,6 +11,7 @@
 #import "PeopleSearchDataSource.h"
 #import "PeopleSearchTableViewCell+ConfigureForCollaborator.h"
 #import "PeopleProfileViewController.h"
+#import "PeopleThemeManager.h"
 
 @interface PeopleSearchViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -25,15 +26,6 @@
 
 static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentifier";
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,6 +33,21 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     [self bounceSearchView];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (void)adjustUIElements
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.searchView setBackgroundColor:[theme primaryColorLight]];
+    [self.searchTextField setBackgroundColor:[theme primaryColorDark]];
+    [self.searchTextField setTextColor:[theme secondaryColor]];
+}
+
+- (void)adjustFonts
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.searchTextField setFont:[theme lightFontWithSize:self.searchTextField.font.pointSize]];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];

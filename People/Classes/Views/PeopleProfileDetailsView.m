@@ -7,6 +7,7 @@
 //
 
 #import "PeopleProfileDetailsView.h"
+#import "PeopleThemeManager.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation PeopleProfileDetailsView
@@ -29,6 +30,15 @@
 - (void)setup
 {
     self.locationLabel.layer.cornerRadius = 10.0;
+    [self adjustFonts];
+}
+
+- (void)adjustFonts
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.nameLabel setFont:[theme regularFontWithSize:self.nameLabel.font.pointSize]];
+    [self.roleLabel setFont:[theme regularFontWithSize:self.roleLabel.font.pointSize]];
+    [self.locationLabel setFont:[theme regularFontWithSize:self.locationLabel.font.pointSize]];
 }
 
 @end

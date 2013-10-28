@@ -7,4 +7,5 @@ pod 'ARSafeJSON'
 pod 'HHPanningTableViewCell'
 pod 'BKUIAdditions', :git => 'https://github.com/brunokoga/BKUIAdditions.git'
 pod 'FormatterKit', '~> 1.2.0'
+pod 'iOS-blur'
 

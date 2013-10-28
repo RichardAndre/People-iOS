@@ -7,25 +7,36 @@
 //
 
 #import "PeopleProfileCoachView.h"
+#import "PeopleThemeManager.h"
 
 @implementation PeopleProfileCoachView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)awakeFromNib
 {
-    // Drawing code
+    [super awakeFromNib];
+    [self setup];
 }
-*/
+
+- (void)setup
+{
+    [self adjustFonts];
+}
+
+- (void)adjustFonts
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.titleLabel setFont:[theme regularFontWithSize:self.titleLabel.font.pointSize]];
+    [self.nameButton.titleLabel setFont:[theme regularFontWithSize:self.nameButton.titleLabel.font.pointSize]];
+    
+}
 
 @end

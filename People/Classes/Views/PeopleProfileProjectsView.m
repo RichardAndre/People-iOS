@@ -7,6 +7,7 @@
 //
 
 #import "PeopleProfileProjectsView.h"
+#import "PeopleThemeManager.h"
 
 @interface PeopleProfileProjectsView ()
 @property (weak, nonatomic) IBOutlet UILabel *currentLabel;
@@ -15,13 +16,32 @@
 @end
 @implementation PeopleProfileProjectsView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setup];
+}
+
+- (void)setup
+{
+    [self adjustFonts];
+}
+
+- (void)adjustFonts
+{
+    
+     id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.currentLabel setFont:[theme regularFontWithSize:self.currentLabel.font.pointSize]];
+    [self.pastLabel setFont:[theme regularFontWithSize:self.pastLabel.font.pointSize]];
 }
 
 #pragma mark - Setter Override

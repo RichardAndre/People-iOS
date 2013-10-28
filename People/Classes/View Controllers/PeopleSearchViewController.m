@@ -12,6 +12,7 @@
 #import "PeopleSearchTableViewCell+ConfigureForCollaborator.h"
 #import "PeopleProfileViewController.h"
 #import "PeopleThemeManager.h"
+#import <AMBlurView.h>
 
 @interface PeopleSearchViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
@@ -152,6 +153,30 @@ static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
                                        }];
     [textField resignFirstResponder];
     return YES;
+}
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    CGRect frame = CGRectMake(0, 0, 320.0, 22.0);
+    UIView *headerView = [[UIView alloc] initWithFrame:frame];
+    AMBlurView *blurView = [AMBlurView new];
+    blurView.frame = frame;
+    [headerView setBackgroundColor:[UIColor clearColor]];
+    [headerView addSubview:blurView];
+    
+    UILabel *resultsLabel = [[UILabel alloc] initWithFrame:frame];
+    [resultsLabel setTextAlignment:NSTextAlignmentCenter];
+    [resultsLabel setFont:[[PeopleThemeManager theme] regularFontWithSize:8.0]];
+    [resultsLabel setMinimumScaleFactor:0];
+  
+    NSUInteger total = [self.resultsTableView.dataSource tableView:self.resultsTableView numberOfRowsInSection:0];
+    NSString *result = total <= 1? NSLocalizedString(@"result", "Result header in Search View") : NSLocalizedString(@"results", "Results header in Search View");
+    NSString *resultsString = [NSString stringWithFormat:@"%d %@", total, result];
+    resultsLabel.text = resultsString;
+    
+    [headerView addSubview:resultsLabel];
+    return headerView;
 }
 
 

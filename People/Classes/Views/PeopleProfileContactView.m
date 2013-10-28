@@ -7,16 +7,38 @@
 //
 
 #import "PeopleProfileContactView.h"
+#import "PeopleThemeManager.h"
 
 @implementation PeopleProfileContactView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setup];
+}
+
+- (void)setup
+{
+    [self adjustFonts];
+    [self.button1 setTitle:@"" forState:UIControlStateNormal];
+    [self.button2 setTitle:@"" forState:UIControlStateNormal];
+}
+
+- (void)adjustFonts
+{
+    
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.titleLabel setFont:[theme regularFontWithSize:self.titleLabel.font.pointSize]];
+    [self.contentLabel setFont:[theme regularFontWithSize:self.contentLabel.font.pointSize]];
 }
 
 - (void)configureForPhone
@@ -38,21 +60,5 @@
     [self.button2 setHidden:YES];
     
 }
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    [self.button1 setTitle:@"" forState:UIControlStateNormal];
-    [self.button2 setTitle:@"" forState:UIControlStateNormal];
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

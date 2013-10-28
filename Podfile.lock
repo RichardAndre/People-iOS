@@ -37,6 +37,7 @@ PODS:
   - FormatterKit/UnitOfInformationFormatter (1.2.1)
   - FormatterKit/URLRequestFormatter (1.2.1)
   - HHPanningTableViewCell (2.0.0)
+  - iOS-blur (0.0.3)
   - SSKeychain (1.2.1)
 
 DEPENDENCIES:
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - BKUIAdditions (from `https://github.com/brunokoga/BKUIAdditions.git`)
   - FormatterKit (~> 1.2.0)
   - HHPanningTableViewCell
+  - iOS-blur
   - SSKeychain
 
 EXTERNAL SOURCES:
@@ -58,6 +60,7 @@ SPEC CHECKSUMS:
   BKUIAdditions: 77a86d349bfc570c7fa920991d12b2a91932903a
   FormatterKit: 43c6567e367a872196747fda0c26395c37bd7dd6
   HHPanningTableViewCell: 16b23eb06b99121c7fd678b6f54700338317b008
+  iOS-blur: 7c8087858e7a685072cf8af52dd08dd3e115531b
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.27.1

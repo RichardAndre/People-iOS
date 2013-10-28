@@ -7,6 +7,7 @@
 //
 
 #import "PeopleProfileTeamView.h"
+#import "PeopleThemeManager.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface PeopleProfileTeamView ()
@@ -16,13 +17,32 @@
 
 @implementation PeopleProfileTeamView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setup];
+}
+
+- (void)setup
+{
+    [self adjustFonts];
+}
+
+- (void)adjustFonts
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    [self.teamLabel setFont:[theme regularFontWithSize:self.teamLabel.font.pointSize]];
+    [self.viewAllButton.titleLabel setFont:[theme regularFontWithSize:self.viewAllButton.titleLabel.font.pointSize]];
+    
 }
 
 - (void)setTeamMembers:(NSArray *)teamMembers

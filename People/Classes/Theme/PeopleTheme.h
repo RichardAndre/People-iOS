@@ -18,6 +18,7 @@
 - (UIColor *)primaryColorDark;
 - (UIColor *)secondaryColor;
 - (UIColor *)darkColor;
+- (UIColor *)lightGrayColor;
 
 
 

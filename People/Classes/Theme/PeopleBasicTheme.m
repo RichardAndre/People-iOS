@@ -59,4 +59,9 @@ static NSString * const kPeopleBasicThemeLightFont = @"Roboto-Light";
     return [UIColor whiteColor];
 }
 
+- (UIColor *)lightGrayColor
+{
+    return [UIColor lightGrayColor];
+}
+
 @end

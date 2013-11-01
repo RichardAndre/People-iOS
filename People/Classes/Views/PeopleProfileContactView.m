@@ -29,8 +29,15 @@
 - (void)setup
 {
     [self adjustFonts];
+    [self adjustColors];
     [self.button1 setTitle:@"" forState:UIControlStateNormal];
     [self.button2 setTitle:@"" forState:UIControlStateNormal];
+}
+
+- (void)adjustColors
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    self.titleLabel.textColor = [theme lightGrayColor];
 }
 
 - (void)adjustFonts

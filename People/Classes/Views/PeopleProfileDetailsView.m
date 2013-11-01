@@ -31,13 +31,20 @@
 {
     self.locationLabel.layer.cornerRadius = 10.0;
     [self adjustFonts];
+    [self adjustColors];
 }
 
+- (void)adjustColors
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    self.roleLabel.textColor = [theme lightGrayColor];
+    
+}
 - (void)adjustFonts
 {
     id<PeopleTheme> theme = [PeopleThemeManager theme];
     [self.nameLabel setFont:[theme regularFontWithSize:self.nameLabel.font.pointSize]];
-    [self.roleLabel setFont:[theme regularFontWithSize:self.roleLabel.font.pointSize]];
+    [self.roleLabel setFont:[theme lightFontWithSize:self.roleLabel.font.pointSize]];
     [self.locationLabel setFont:[theme regularFontWithSize:self.locationLabel.font.pointSize]];
 }
 

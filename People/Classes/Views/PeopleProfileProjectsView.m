@@ -40,8 +40,8 @@
 {
     
      id<PeopleTheme> theme = [PeopleThemeManager theme];
-    [self.currentLabel setFont:[theme regularFontWithSize:self.currentLabel.font.pointSize]];
-    [self.pastLabel setFont:[theme regularFontWithSize:self.pastLabel.font.pointSize]];
+    [self.currentLabel setFont:[theme lightFontWithSize:self.currentLabel.font.pointSize]];
+    [self.pastLabel setFont:[theme lightFontWithSize:self.pastLabel.font.pointSize]];
 }
 
 #pragma mark - Setter Override

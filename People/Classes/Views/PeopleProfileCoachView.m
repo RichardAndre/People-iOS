@@ -29,6 +29,14 @@
 - (void)setup
 {
     [self adjustFonts];
+    [self adjustColors];
+}
+
+- (void)adjustColors
+{
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    self.titleLabel.textColor = [theme lightGrayColor];
+    
 }
 
 - (void)adjustFonts

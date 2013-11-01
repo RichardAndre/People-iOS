@@ -15,6 +15,7 @@
 #import "PeopleServices.h"
 #import "PeopleContactServices.h"
 #import "NSString+PhoneNumberFormatter.h"
+#import "PeopleTeamViewAllViewController.h"
 
 @interface PeopleProfileViewController ()
 @property (nonatomic, strong) PeopleProfileDetailsView *detailView;
@@ -365,5 +366,31 @@
                                            
                                        }];
 }
+static NSString * const PeopleProfileToTeamViewSegue = @"PeopleProfileToTeamViewSegue";
 
+
+- (IBAction)teamViewAllButtonTouched:(id)sender {
+    [self performSegueWithIdentifier:PeopleProfileToTeamViewSegue
+                              sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:PeopleProfileToTeamViewSegue])
+    {
+        PeopleTeamViewAllViewController *destinationViewController = segue.destinationViewController;
+        [destinationViewController setBackgroundImage:[self screenshot]];
+        
+    }
+}
+
+- (UIImage *) screenshot {
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+    
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 @end

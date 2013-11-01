@@ -77,6 +77,7 @@
 		D3CADB5A18102A2400CE61BB /* PeopleSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5918102A2400CE61BB /* PeopleSearchTextField.m */; };
 		D3CADB5D18102A9D00CE61BB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CADB5C18102A9D00CE61BB /* QuartzCore.framework */; };
 		D3CADB6018102DD600CE61BB /* PeopleSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5F18102DD600CE61BB /* PeopleSearchDataSource.m */; };
+		D3F99B1E182410CB00617715 /* PeopleTeamViewAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F99B1D182410CB00617715 /* PeopleTeamViewAllViewController.m */; };
 		F79CE7DA28B547428F775C5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095B7F133C9A432FA5AF8B51 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -202,6 +203,8 @@
 		D3CADB5C18102A9D00CE61BB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D3CADB5E18102DD500CE61BB /* PeopleSearchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleSearchDataSource.h; path = People/Classes/PeopleSearchDataSource.h; sourceTree = "<group>"; };
 		D3CADB5F18102DD600CE61BB /* PeopleSearchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleSearchDataSource.m; path = People/Classes/PeopleSearchDataSource.m; sourceTree = "<group>"; };
+		D3F99B1C182410CB00617715 /* PeopleTeamViewAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleTeamViewAllViewController.h; path = "Classes/View Controllers/PeopleTeamViewAllViewController.h"; sourceTree = "<group>"; };
+		D3F99B1D182410CB00617715 /* PeopleTeamViewAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleTeamViewAllViewController.m; path = "Classes/View Controllers/PeopleTeamViewAllViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -496,6 +499,8 @@
 				D3AF91821808820800F74776 /* PeopleProfileViewController.m */,
 				D3AF91861808821E00F74776 /* PeopleNavigationViewController.h */,
 				D3AF91871808821E00F74776 /* PeopleNavigationViewController.m */,
+				D3F99B1C182410CB00617715 /* PeopleTeamViewAllViewController.h */,
+				D3F99B1D182410CB00617715 /* PeopleTeamViewAllViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -692,6 +697,7 @@
 				D390642D181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m in Sources */,
 				D36C0C4E180C3058008C8CBB /* PeopleSearchToProfileSegue.m in Sources */,
 				D3398B94181475EE00A7627A /* PeopleProfileContactView.m in Sources */,
+				D3F99B1E182410CB00617715 /* PeopleTeamViewAllViewController.m in Sources */,
 				D36C0C48180C3036008C8CBB /* PeopleInitialToSearchSegue.m in Sources */,
 				D3AF91841808820800F74776 /* PeopleProfileViewController.m in Sources */,
 				D3906436181450AB0070B6EF /* PeopleMailViewController.m in Sources */,

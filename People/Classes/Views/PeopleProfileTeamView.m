@@ -84,6 +84,10 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
                                     kPhotoButtonWidth, kPhotoButtonWidth)];
         button.layer.cornerRadius = button.frame.size.height/2;
         [button setClipsToBounds:YES];
+        [button addTarget:self
+                   action:@selector(buttonTouched:)
+         forControlEvents:UIControlEventTouchUpInside];
+        
         [self.teamMembersButtonsContainer addSubview:button];
         offset += kPhotoButtonWidth + kPhotoButtonSpacing;
     }
@@ -104,5 +108,12 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
     }
     return returnValue;
 }
+
+- (void)buttonTouched:(id)sender
+{
+    NSUInteger index = [self.teamMembersButtonsContainer.subviews indexOfObject:sender];
+    [self.delegate openProfileForUser:self.teamMembers[index]];
+}
+
 
 @end

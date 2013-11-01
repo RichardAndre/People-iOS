@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PeopleOpenProfileProtocol.h"
 
 @interface PeopleProfileTeamView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *viewAllButton;
 @property (weak, nonatomic) IBOutlet UILabel *teamLabel;
 
 @property (nonatomic, strong) NSArray *teamMembers;
+@property (weak) id<PeopleOpenProfileProtocol>delegate;
 
 - (NSInteger)maxCount;
 - (void)setTeamMemberPicture:(UIImage *)image forIndex:(NSInteger)index;

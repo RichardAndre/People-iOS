@@ -208,6 +208,7 @@
 
 - (void)populateTeamView
 {
+    [self.teamView setDelegate:self];
     NSArray *teamMembers = [self.collaborator.teammates allObjects];
     [self.teamView setTeamMembers:teamMembers];
     
@@ -366,6 +367,7 @@
                                            
                                        }];
 }
+
 static NSString * const PeopleProfileToTeamViewSegue = @"PeopleProfileToTeamViewSegue";
 
 
@@ -379,10 +381,35 @@ static NSString * const PeopleProfileToTeamViewSegue = @"PeopleProfileToTeamView
     if ([segue.identifier isEqualToString:PeopleProfileToTeamViewSegue])
     {
         PeopleTeamViewAllViewController *destinationViewController = segue.destinationViewController;
+        destinationViewController.delegate = self;
         [destinationViewController setBackgroundImage:[self screenshot]];
         [destinationViewController setTeamMembers:self.teamView.teamMembers];
         
     }
 }
 
+#pragma mark - PeopleOpenProfileProtocol
+- (void)openProfileForUser:(NSDictionary *)user
+{
+    [PeopleServices colaboradoresForSearchTerm:user[@"login"]
+                                       success:^(NSArray *colaboradores) {
+                                           PeopleCollaborator *collaborador;
+                                           if ([colaboradores count] > 1) //case: mentor == 'bruno'
+                                           {
+                                               collaborador = [colaboradores filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"login MATCHES %@", user[@"login"]]][0];
+                                           }
+                                           else
+                                           {
+                                               collaborador = colaboradores[0];
+                                           }
+                                           UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+                                           PeopleProfileViewController *collaboratorProfile = [storyboard instantiateViewControllerWithIdentifier:@"PeopleProfileViewController"];
+                                           [collaboratorProfile setCollaborator:collaborador];
+                                           [self.navigationController pushViewController:collaboratorProfile animated:YES];
+                                           
+                                       } failure:^(NSError *error) {
+                                           
+                                       }];
+    
+}
 @end

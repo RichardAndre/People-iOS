@@ -8,8 +8,9 @@
 
 #import "PeopleBaseViewController.h"
 #import "PeopleCollaborator.h"
+#import "PeopleOpenProfileProtocol.h"
 
-@interface PeopleProfileViewController : PeopleBaseViewController
+@interface PeopleProfileViewController : PeopleBaseViewController <PeopleOpenProfileProtocol>
 
 @property (nonatomic, retain) PeopleCollaborator *collaborator;
 

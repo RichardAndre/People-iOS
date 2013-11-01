@@ -66,17 +66,26 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
         [button removeFromSuperview];
     }
     
-    CGFloat offset = 0;
+    CGFloat offset = 20;
+    CGFloat offsetY = 64;
     
     for (NSInteger i = 0; i < [self.teamMembers count]; i++) {
         UIButton *button = [[UIButton alloc] init];
         [button setFrame:CGRectMake(offset,
-                                    0,
+                                    offsetY,
                                     kPhotoButtonWidth, kPhotoButtonWidth)];
         button.layer.cornerRadius = button.frame.size.height/2;
         [button setClipsToBounds:YES];
+        [button addTarget:self
+                   action:@selector(buttonTouched:)
+         forControlEvents:UIControlEventTouchUpInside];
         [self.teamView addSubview:button];
         offset += kPhotoButtonWidth + kPhotoButtonSpacing;
+        if (offset > 280)
+        {
+            offset = 20;
+            offsetY += 60;
+        }
     }
 }
 
@@ -106,6 +115,16 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
                              }];
     }
 
+}
+
+- (void)buttonTouched:(id)sender
+{
+    NSUInteger index = [self.teamView.subviews indexOfObject:sender];
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 [self.delegate openProfileForUser:self.teamMembers[index]];
+                             }];
+    
 }
 
 @end

@@ -7,9 +7,11 @@
 //
 
 #import "PeopleBaseViewController.h"
+#import "PeopleOpenProfileProtocol.h"
 
 @interface PeopleTeamViewAllViewController : PeopleBaseViewController
 @property (strong, nonatomic) UIImage *backgroundImage;
 @property (strong) NSArray *teamMembers;
+@property (weak) id<PeopleOpenProfileProtocol>delegate;
 
 @end

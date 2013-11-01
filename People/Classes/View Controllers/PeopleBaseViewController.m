@@ -52,4 +52,13 @@
     
 }
 
+- (UIImage *) screenshot {
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+    
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
 @end

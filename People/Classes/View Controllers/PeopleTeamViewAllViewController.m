@@ -8,10 +8,12 @@
 
 #import "PeopleTeamViewAllViewController.h"
 #import <iOS-blur/AMBlurView.h>
+#import "PeopleServices.h"
 
 @interface PeopleTeamViewAllViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) IBOutlet UIView *teamView;
 
 @end
 
@@ -35,7 +37,9 @@
     [blurView setFrame:self.view.bounds];
     [self.view insertSubview:blurView
                 aboveSubview:self.backgroundImageView];
-	// Do any additional setup after loading the view.
+
+    [self createTeamMemberButtons];
+    [self downloadPictures];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,4 +54,58 @@
     
                              }];
 }
+
+static CGFloat const kPhotoButtonWidth = 44.0;
+static CGFloat const kPhotoButtonSpacing = 15.0;
+
+
+- (void)createTeamMemberButtons
+{
+    for (UIButton *button in [self.teamView subviews])
+    {
+        [button removeFromSuperview];
+    }
+    
+    CGFloat offset = 0;
+    
+    for (NSInteger i = 0; i < [self.teamMembers count]; i++) {
+        UIButton *button = [[UIButton alloc] init];
+        [button setFrame:CGRectMake(offset,
+                                    0,
+                                    kPhotoButtonWidth, kPhotoButtonWidth)];
+        button.layer.cornerRadius = button.frame.size.height/2;
+        [button setClipsToBounds:YES];
+        [self.teamView addSubview:button];
+        offset += kPhotoButtonWidth + kPhotoButtonSpacing;
+    }
+}
+
+- (void)setTeamMemberPicture:(UIImage *)image forIndex:(NSInteger)index
+{
+    [(UIButton *)self.teamView.subviews[index] setImage:image
+                                           forState:UIControlStateNormal];
+}
+
+- (void)downloadPictures
+{
+    NSDictionary *member;
+    NSString *memberLogin;
+    for (NSInteger i = 0; i < [self.teamMembers count]; i++)
+    {
+        member = self.teamMembers[i];
+        memberLogin = member[@"login"];
+        
+        [PeopleServices photoForUser:memberLogin
+                             success:^(UIImage *image) {
+                                 if ([image isKindOfClass:[UIImage class]])
+                                 {
+                                     [self setTeamMemberPicture:image forIndex:i];
+                                 }
+                             } failure:^(NSError *error) {
+                                 
+                             }];
+    }
+
+}
+
 @end

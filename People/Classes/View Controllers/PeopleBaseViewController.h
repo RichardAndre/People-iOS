@@ -10,4 +10,5 @@
 
 @interface PeopleBaseViewController : UIViewController
 
+- (UIImage *)screenshot;
 @end

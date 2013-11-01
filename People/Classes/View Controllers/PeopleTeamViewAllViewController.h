@@ -10,5 +10,6 @@
 
 @interface PeopleTeamViewAllViewController : PeopleBaseViewController
 @property (strong, nonatomic) UIImage *backgroundImage;
+@property (strong) NSArray *teamMembers;
 
 @end

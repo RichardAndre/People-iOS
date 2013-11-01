@@ -380,17 +380,9 @@ static NSString * const PeopleProfileToTeamViewSegue = @"PeopleProfileToTeamView
     {
         PeopleTeamViewAllViewController *destinationViewController = segue.destinationViewController;
         [destinationViewController setBackgroundImage:[self screenshot]];
+        [destinationViewController setTeamMembers:self.teamView.teamMembers];
         
     }
 }
 
-- (UIImage *) screenshot {
-    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
-    
-    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
 @end

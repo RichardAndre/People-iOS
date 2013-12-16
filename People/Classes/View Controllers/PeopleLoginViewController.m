@@ -63,10 +63,14 @@
 - (void)applyLightLoginIcons
 {
     UIImageView *userIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"iconeUser"]];
+    userIcon.frame = CGRectMake(0, 0, CGRectGetWidth(userIcon.frame) + 15, CGRectGetHeight(userIcon.frame));
+    userIcon.contentMode = UIViewContentModeLeft;
     [self.usernameTextField setRightView:userIcon];
     [self.usernameTextField setRightViewMode:UITextFieldViewModeAlways];
     
     UIImageView *passwordIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"iconeSenha"]];
+    passwordIcon.frame = CGRectMake(0, 0, CGRectGetWidth(passwordIcon.frame) + 15, CGRectGetHeight(passwordIcon.frame));
+    passwordIcon.contentMode = UIViewContentModeLeft;
     [self.passwordTextField setRightView:passwordIcon];
     [self.passwordTextField setRightViewMode:UITextFieldViewModeAlways];
 }
@@ -107,8 +111,7 @@
     self.usernameTextField.layer.cornerRadius = radius;
     self.passwordTextField.layer.cornerRadius = radius;
     
-
-
+    self.loginButton.titleLabel.font = [theme lightFontWithSize:18.0f];
 }
 
 - (void)adjustLocalizationItems
@@ -191,6 +194,8 @@ static NSString * const kLoginToSearchSegue = @"PeopleLoginToSearchSegue";
 
 - (IBAction)loginButtonPressed:(id)sender
 {
+    id theme = [PeopleThemeManager theme];
+    self.loginButton.titleLabel.textColor = [theme primaryColorDark];
     
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
@@ -303,11 +308,14 @@ static NSString * const kLoginToSearchSegue = @"PeopleLoginToSearchSegue";
             break;
     }
     
+    //255 78 86
     [self.loginButton setTitle:loginButtonTitle forState:UIControlStateNormal];
+    [self.loginButton.titleLabel setTextColor:[UIColor colorWithRed:1.0f
+                                                              green:78.0f / 255.0f
+                                                               blue:86.0f / 255.0f
+                                                              alpha:1.0f]];
     self.loginButton.enabled = YES;
     
 }
-
-
 
 @end

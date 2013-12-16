@@ -29,29 +29,53 @@ static NSString * const kPeopleBasicThemeLightFont = @"Roboto-Light";
 
 - (UIColor *)darkColor
 {
-    return [UIColor colorWithRed:22.0/255.0
-                           green:28.0/255.0
-                            blue:35.0/255.0
+    return [UIColor colorWithRed:22.0f / 255.0f
+                           green:28.0f / 255.0f
+                            blue:35.0f / 255.0f
                            alpha:1.0];
 }
 
 
 - (UIColor *)primaryColorLight
 {
-    return [UIColor colorWithRed:49.0/255.0
-                           green:117.0/255.0
-                            blue:210.0/255.0
-                           alpha:1.0];
+    return [UIColor colorWithRed:17.0f / 255.0f
+                           green:115.0f / 255.0f
+                            blue:237.0f / 255.0f
+                           alpha:1.0f];
     
 }
 
 - (UIColor *)primaryColorDark
 {
-    return [UIColor colorWithRed:41.0/255.0
-                           green:106.0/255.0
-                            blue:197.0/255.0
-                           alpha:1.0];
+    return [UIColor colorWithRed:0.0f / 255.0f
+                           green:90.0f / 255.0f
+                            blue:201.0f / 255.0f
+                           alpha:1.0f];
     
+}
+
+- (UIColor *)secondaryColorDark
+{
+    return [UIColor colorWithRed:22.0f / 255.0f
+                           green:73.0f / 255.0f
+                            blue:131.0f / 255.0f
+                           alpha:1.0f];
+}
+
+- (UIColor *)thirdColorDark
+{
+    return [UIColor colorWithRed:217.0f / 255.0f
+                           green:220.0f / 255.0f
+                            blue:223.0f / 255.0f
+                           alpha:1.0f];
+}
+
+- (UIColor *)thirdColorLight
+{
+    return [UIColor colorWithRed:242.0f / 255.0f
+                           green:245.0f / 255.0f
+                            blue:247.0f / 255.0f
+                           alpha:1.0f];
 }
 
 - (UIColor *)secondaryColor

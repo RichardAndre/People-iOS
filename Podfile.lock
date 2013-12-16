@@ -11,9 +11,7 @@ PODS:
     - AFNetworking/Security
     - AFNetworking/Serialization
   - AFNetworking/NSURLSession (2.0.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
+    - AFNetworking/NSURLConnection
   - AFNetworking/Reachability (2.0.1)
   - AFNetworking/Security (2.0.1)
   - AFNetworking/Serialization (2.0.1)
@@ -38,7 +36,6 @@ PODS:
   - FormatterKit/URLRequestFormatter (1.2.1)
   - HHPanningTableViewCell (2.0.0)
   - iOS-blur (0.0.3)
-  - LBBlurredImage (0.1.0)
   - SSKeychain (1.2.1)
 
 DEPENDENCIES:
@@ -49,7 +46,6 @@ DEPENDENCIES:
   - FormatterKit (~> 1.2.0)
   - HHPanningTableViewCell
   - iOS-blur
-  - LBBlurredImage
   - SSKeychain
 
 EXTERNAL SOURCES:
@@ -57,13 +53,12 @@ EXTERNAL SOURCES:
     :git: https://github.com/brunokoga/BKUIAdditions.git
 
 SPEC CHECKSUMS:
-  AFNetworking: a6f11ac4ac087303e6ff87adc1ba57b0dac20ef8
+  AFNetworking: 867cd74266eeab923f249aa8b3d56899a67cc50e
   ARSafeJSON: 737d05b66a51376fcc7c548569c457a77a70bd2c
   BKUIAdditions: 77a86d349bfc570c7fa920991d12b2a91932903a
   FormatterKit: 43c6567e367a872196747fda0c26395c37bd7dd6
   HHPanningTableViewCell: 16b23eb06b99121c7fd678b6f54700338317b008
   iOS-blur: 7c8087858e7a685072cf8af52dd08dd3e115531b
-  LBBlurredImage: f44c432794e2a8a225f4c8a563aa1bd713b6b4c5
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
 
-COCOAPODS: 0.27.1
+COCOAPODS: 0.28.0

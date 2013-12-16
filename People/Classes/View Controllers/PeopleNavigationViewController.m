@@ -7,8 +7,11 @@
 //
 
 #import "PeopleNavigationViewController.h"
+#import "PeopleActionMenuViewController.h"
 
 @interface PeopleNavigationViewController ()
+
+@property (nonatomic, strong) PeopleActionMenuViewController *menuVC;
 
 @end
 
@@ -26,7 +29,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.menuVC = [PeopleActionMenuViewController new];
+    CGRect menuFrame = self.menuVC.view.frame;
+    menuFrame.origin.x = self.view.frame.size.width;
+    self.menuVC.view.frame = menuFrame;
+    [self.view addSubview:self.menuVC.view];
+    
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPan:)];
+    [self.view addGestureRecognizer:pan];
 	// Do any additional setup after loading the view.
+}
+
+- (void)onPan:(UIPanGestureRecognizer *)pan
+{
+    CGPoint location = [pan locationInView:self.view];
+    BOOL rightSwipe = (location.x > (self.view.frame.size.width / 5) * 4);
+//    if (rightSwipe && pan.direction = UIPA)
+    {
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning

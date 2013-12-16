@@ -38,8 +38,12 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
 - (void)adjustUIElements
 {
     id<PeopleTheme> theme = [PeopleThemeManager theme];
-    [self.searchView setBackgroundColor:[theme primaryColorLight]];
-    [self.searchTextField setBackgroundColor:[theme primaryColorDark]];
+    [self.searchView setBackgroundColor:[theme primaryColorDark]];
+    [self.searchTextField setBackgroundColor:[theme primaryColorLight]];
+    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:self.searchTextField.placeholder attributes:@{ NSForegroundColorAttributeName : [theme secondaryColorDark], NSFontAttributeName : [theme lightFontWithSize:15.0f]}];
+    
+    [self.searchTextField setFont:[theme lightFontWithSize:15.0f]];
+    [self.searchTextField setAttributedPlaceholder:placeholder];
     [self.searchTextField setTextColor:[theme secondaryColor]];
 }
 
@@ -67,8 +71,29 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
                                          oldFrame.origin.y - oldFrame.size.height,
                                          oldFrame.size.width,
                                          oldFrame.size.height)];
+
+    CGRect textFrame = self.searchTextField.frame;
+    CGRect oldTextFrame = self.searchTextField.frame;
+    textFrame.origin.y -= 120.f;
+    self.searchTextField.frame = textFrame;
+
+    [UIView animateWithDuration:1.0f
+                          delay:0.5f
+         usingSpringWithDamping:0.5f
+          initialSpringVelocity:0.1f
+                        options:kNilOptions
+                     animations:^{
+                         self.searchTextField.frame = oldTextFrame;
+                     } completion:^(BOOL finished) {
+                         
+                     }];
     
-    [UIView animateWithDuration:1.0 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:25.0 options:0 animations:^{
+    [UIView animateWithDuration:1.0f
+                          delay:0
+         usingSpringWithDamping:0.7
+          initialSpringVelocity:25.0
+                        options:0
+                     animations:^{
         
         [self.searchView setFrame:oldFrame];
     } completion:^(BOOL finished) {

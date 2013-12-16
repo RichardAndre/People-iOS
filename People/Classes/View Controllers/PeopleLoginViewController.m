@@ -10,6 +10,8 @@
 #import "PeopleValidation.h"
 #import "PeopleServices.h"
 #import "PeoplePreferences.h"
+#import "PeopleThemeManager.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PeopleLoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
@@ -58,11 +60,22 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)applyLightLoginIcons
+{
+    UIImageView *userIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"iconeUser"]];
+    [self.usernameTextField setRightView:userIcon];
+    [self.usernameTextField setRightViewMode:UITextFieldViewModeAlways];
+    
+    UIImageView *passwordIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"iconeSenha"]];
+    [self.passwordTextField setRightView:passwordIcon];
+    [self.passwordTextField setRightViewMode:UITextFieldViewModeAlways];
+}
+
 #pragma mark - Initial Adjusts
 
 - (void)adjustFonts
 {
-    
+
 }
 
 - (void)adjustUIElements
@@ -72,24 +85,58 @@
      Here we're just creating a view to use as a margin on our text fields
      and making sure that our text fields always show them.
      */
-    UIView *usernameTextFieldPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10.0, self.usernameTextField.frame.size.height)];
+    UIView *usernameTextFieldPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 17.0, self.usernameTextField.frame.size.height)];
     [usernameTextFieldPaddingView setBackgroundColor:[UIColor clearColor]];
     
     [self.usernameTextField setLeftView:usernameTextFieldPaddingView];
     [self.usernameTextField setLeftViewMode:UITextFieldViewModeAlways];
     
-    UIView *passwordTextFieldPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10.0, self.passwordTextField.frame.size.height)];
+    UIView *passwordTextFieldPaddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 17.0, self.passwordTextField.frame.size.height)];
     [passwordTextFieldPaddingView setBackgroundColor:[UIColor clearColor]];
     
     [self.passwordTextField setLeftView:passwordTextFieldPaddingView];
     [self.passwordTextField setLeftViewMode:UITextFieldViewModeAlways];
+    
+    [self applyLightLoginIcons];
+    
+    id theme = [PeopleThemeManager theme];
+    self.usernameTextField.backgroundColor = [theme thirdColorDark];
+    self.passwordTextField.backgroundColor = [theme thirdColorDark];
+    
+    CGFloat radius = 15.0f;
+    self.usernameTextField.layer.cornerRadius = radius;
+    self.passwordTextField.layer.cornerRadius = radius;
+    
+
 
 }
 
 - (void)adjustLocalizationItems
 {
-    self.usernameTextField.placeholder = NSLocalizedString(@"username", @"");
-    self.passwordTextField.placeholder = NSLocalizedString(@"password", @"");
+    id theme = [PeopleThemeManager theme];
+
+    NSString *userString = NSLocalizedString(@"username", @"");
+    NSString *passwordString = NSLocalizedString(@"password", @"");
+    UIColor *placeholderColor = [UIColor colorWithRed:151.0f / 255.0f
+                                                green:159.0f / 255.0f
+                                                 blue:167.0f / 255.0f
+                                                alpha:1.0f];
+    UIColor *textColor = [UIColor colorWithRed:36.0f / 255.0f
+                                        green:43.0f / 255.0f
+                                         blue:50.0f / 255.0f
+                                        alpha:1.0f];
+    UIFont *placeholderFont = [theme lightFontWithSize:18.0f];
+    NSAttributedString *loginPlaceholder = [[NSAttributedString alloc] initWithString:userString
+                                                                           attributes:@{ NSForegroundColorAttributeName : placeholderColor,
+                                                                                         NSFontAttributeName : placeholderFont }];
+    NSAttributedString *passwordPlaceholder = [[NSAttributedString alloc] initWithString:passwordString
+                                                                              attributes:@{ NSForegroundColorAttributeName : placeholderColor, NSFontAttributeName : placeholderFont }];
+    self.usernameTextField.attributedPlaceholder = loginPlaceholder;
+    self.passwordTextField.attributedPlaceholder = passwordPlaceholder;
+    self.usernameTextField.font = placeholderFont;
+    self.passwordTextField.font = placeholderFont;
+    self.usernameTextField.textColor = textColor;
+    self.passwordTextField.textColor = textColor;
 }
 
 
@@ -188,6 +235,11 @@ static NSString * const kLoginToSearchSegue = @"PeopleLoginToSearchSegue";
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     BOOL enabled = YES;
+    
+    NSString *changedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    id theme = [PeopleThemeManager theme];
+    textField.backgroundColor = [changedString length] > 0 ? [theme thirdColorLight] : [theme thirdColorDark];
     
     if (([textField.text length] <=1) && ([string length] == 0)) {
         enabled = NO;

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA6B764C185F91FD00B18B0E /* PeopleActionMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6B764A185F91FD00B18B0E /* PeopleActionMenuViewController.m */; };
+		AA6B764D185F91FD00B18B0E /* PeopleActionMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA6B764B185F91FD00B18B0E /* PeopleActionMenuViewController.xib */; };
 		AAB3A9B6180C81AA00EBF173 /* PeopleCollaborator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3A9B5180C81AA00EBF173 /* PeopleCollaborator.m */; };
 		AAB3A9B7180C81AA00EBF173 /* PeopleCollaborator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3A9B5180C81AA00EBF173 /* PeopleCollaborator.m */; };
 		AAB3A9BB180C81EB00EBF173 /* PeopleURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3A9BA180C81EB00EBF173 /* PeopleURLSessionManager.m */; };
@@ -94,6 +96,9 @@
 /* Begin PBXFileReference section */
 		095B7F133C9A432FA5AF8B51 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		218916EF91C549FCA6874668 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		AA6B7649185F91FD00B18B0E /* PeopleActionMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleActionMenuViewController.h; path = Classes/PeopleActionMenuViewController.h; sourceTree = "<group>"; };
+		AA6B764A185F91FD00B18B0E /* PeopleActionMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleActionMenuViewController.m; path = Classes/PeopleActionMenuViewController.m; sourceTree = "<group>"; };
+		AA6B764B185F91FD00B18B0E /* PeopleActionMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PeopleActionMenuViewController.xib; path = Classes/PeopleActionMenuViewController.xib; sourceTree = "<group>"; };
 		AAB3A9B4180C81AA00EBF173 /* PeopleCollaborator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleCollaborator.h; path = Classes/Entities/PeopleCollaborator.h; sourceTree = "<group>"; };
 		AAB3A9B5180C81AA00EBF173 /* PeopleCollaborator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleCollaborator.m; path = Classes/Entities/PeopleCollaborator.m; sourceTree = "<group>"; };
 		AAB3A9B9180C81EB00EBF173 /* PeopleURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleURLSessionManager.h; path = Classes/Connection/PeopleURLSessionManager.h; sourceTree = "<group>"; };
@@ -234,6 +239,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA6B7648185F91AE00B18B0E /* ActionMenu */ = {
+			isa = PBXGroup;
+			children = (
+				AA6B7649185F91FD00B18B0E /* PeopleActionMenuViewController.h */,
+				AA6B764A185F91FD00B18B0E /* PeopleActionMenuViewController.m */,
+				AA6B764B185F91FD00B18B0E /* PeopleActionMenuViewController.xib */,
+			);
+			name = ActionMenu;
+			sourceTree = "<group>";
+		};
 		AAB3A9B8180C81CA00EBF173 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +335,7 @@
 		D35255CF18071C48003D88E2 /* People */ = {
 			isa = PBXGroup;
 			children = (
+				AA6B7648185F91AE00B18B0E /* ActionMenu */,
 				D390643118144F1B0070B6EF /* Actions */,
 				D38E728E1811C08500CEB3FA /* Search */,
 				D3C04636180F2502002E09ED /* Parsers */,
@@ -624,6 +640,7 @@
 				D390642918143EE60070B6EF /* PeopleSearchDrawerCell.xib in Resources */,
 				D3398B91181475D100A7627A /* PeopleProfileContactView.xib in Resources */,
 				D3398B8F1814714800A7627A /* PeopleProfileDetailsView.xib in Resources */,
+				AA6B764D185F91FD00B18B0E /* PeopleActionMenuViewController.xib in Resources */,
 				D352561018072008003D88E2 /* Roboto-Medium.ttf in Resources */,
 				D352561218072008003D88E2 /* Roboto-Regular.ttf in Resources */,
 				D352560918072008003D88E2 /* Roboto-Black.ttf in Resources */,
@@ -694,6 +711,7 @@
 				D3CADB5718101AFD00CE61BB /* PeopleHTTPSessionManager.m in Sources */,
 				D3398B8D1814713800A7627A /* PeopleProfileDetailsView.m in Sources */,
 				D36C0C4B180C3046008C8CBB /* PeopleLoginToSearchSegue.m in Sources */,
+				AA6B764C185F91FD00B18B0E /* PeopleActionMenuViewController.m in Sources */,
 				D3CADB5A18102A2400CE61BB /* PeopleSearchTextField.m in Sources */,
 				D35255DA18071C48003D88E2 /* PeopleAppDelegate.m in Sources */,
 				D390642D181446220070B6EF /* PeopleSearchTableViewCell+ConfigureForCollaborator.m in Sources */,

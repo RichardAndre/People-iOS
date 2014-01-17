@@ -10,8 +10,12 @@
 
 @implementation PeopleBasicTheme
 
-static NSString * const kPeopleBasicThemeRegularFont = @"Roboto-Regular";
-static NSString * const kPeopleBasicThemeLightFont = @"Roboto-Light";
+static NSString * const kPeopleBasicThemeNumberRegularFont = @"Roboto-Regular";
+static NSString * const kPeopleBasicThemeNumberLightFont = @"Roboto-Light";
+static NSString * const kPeopleBasicThemeNumberMediumFont = @"Roboto-Medium";
+static NSString * const kPeopleBasicThemeLightFont = @"Raleway-Light";
+static NSString * const kPeopleBasicThemeRegularFont = @"Raleway";
+static NSString * const kPeopleBasicThemeMediumFont = @"Raleway-Medium";
 
 
 - (UIFont *)regularFontWithSize:(CGFloat)size
@@ -27,6 +31,33 @@ static NSString * const kPeopleBasicThemeLightFont = @"Roboto-Light";
     
 }
 
+- (UIFont *)mediumFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:kPeopleBasicThemeMediumFont
+                           size:size];
+    
+}
+
+- (UIFont *)regularNumberFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:kPeopleBasicThemeNumberRegularFont
+                           size:size];
+}
+
+- (UIFont *)lightNumberFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:kPeopleBasicThemeNumberLightFont
+                           size:size];
+    
+}
+
+- (UIFont *)mediumNumberFontWithSize:(CGFloat)size
+{
+    return [UIFont fontWithName:kPeopleBasicThemeNumberMediumFont
+                           size:size];
+    
+}
+
 - (UIColor *)darkColor
 {
     return [UIColor colorWithRed:22.0f / 255.0f
@@ -35,30 +66,50 @@ static NSString * const kPeopleBasicThemeLightFont = @"Roboto-Light";
                            alpha:1.0];
 }
 
-
+/*
+ * Light Green
+ */
 - (UIColor *)primaryColorLight
 {
-    return [UIColor colorWithRed:17.0f / 255.0f
-                           green:115.0f / 255.0f
-                            blue:237.0f / 255.0f
+    return [UIColor colorWithRed:127.0f / 255.0f
+                           green:206.0f / 255.0f
+                            blue:214.0f / 255.0f
                            alpha:1.0f];
     
 }
 
+/*
+ * Gray
+ */
+- (UIColor *)primaryColorMenu
+{
+    return [UIColor colorWithRed:55.0f / 255.0f
+                           green:55.0f / 255.0f
+                            blue:55.0f / 255.0f
+                           alpha:1.0f];
+    
+}
+
+/*
+ * Green
+ */
 - (UIColor *)primaryColorDark
 {
-    return [UIColor colorWithRed:0.0f / 255.0f
-                           green:90.0f / 255.0f
-                            blue:201.0f / 255.0f
+    return [UIColor colorWithRed:32.0f / 255.0f
+                           green:190.0f / 255.0f
+                            blue:198.0f / 255.0f
                            alpha:1.0f];
     
 }
 
+/*
+ * Dark Green
+ */
 - (UIColor *)secondaryColorDark
 {
-    return [UIColor colorWithRed:22.0f / 255.0f
-                           green:73.0f / 255.0f
-                            blue:131.0f / 255.0f
+    return [UIColor colorWithRed:33.0f / 255.0f
+                           green:183.0f / 255.0f
+                            blue:191.0f / 255.0f
                            alpha:1.0f];
 }
 

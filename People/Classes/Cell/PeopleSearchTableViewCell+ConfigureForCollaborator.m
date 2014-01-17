@@ -17,6 +17,7 @@
     self.roleLabel.text = collaborator.role;
     self.telLabel.text = [collaborator.phone stringValue];
     self.mobileLabel.text = [collaborator.mobile stringValue];
+    self.photoImageView.image = nil;
     self.imageView.image = nil;
     
     [self configureDrawerButtons];

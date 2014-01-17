@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PeopleNavigationViewController : UINavigationController
+@interface PeopleNavigationViewController : UINavigationController<UIGestureRecognizerDelegate, UINavigationControllerDelegate>
+
+-(void)closeMenu;
 
 @end

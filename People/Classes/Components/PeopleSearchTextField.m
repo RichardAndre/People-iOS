@@ -42,8 +42,27 @@
     [self setLeftViewMode:UITextFieldViewModeAlways];
     
     self.layer.cornerRadius = 16.0;
+    [self adjustSearchIconForStringLength:self.text.length];
 
 }
 
+- (void)setText:(NSString *)text
+{
+    [super setText:text];
+    [self adjustSearchIconForStringLength:text.length];
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
+    [self adjustSearchIconForStringLength:attributedText.length];
+}
+
+- (void)adjustSearchIconForStringLength:(NSInteger)stringLength
+{
+    UIImageView *leftView = (UIImageView *)self.leftView;
+    UIImage *image = stringLength > 0 ? [UIImage imageNamed:@"LupaBranca"] : [UIImage imageNamed:@"iconeLupaVerde"];
+    leftView.image = image;
+}
 
 @end

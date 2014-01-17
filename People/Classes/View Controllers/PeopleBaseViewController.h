@@ -10,5 +10,8 @@
 
 @interface PeopleBaseViewController : UIViewController
 
+@property (nonatomic) BOOL statusBarHidden;
+
 - (UIImage *)screenshot;
+
 @end

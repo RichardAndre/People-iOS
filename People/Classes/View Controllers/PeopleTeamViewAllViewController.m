@@ -13,7 +13,7 @@
 @interface PeopleTeamViewAllViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (strong, nonatomic) IBOutlet UIView *teamView;
+@property (weak, nonatomic) IBOutlet UIScrollView *teamView;
 
 @end
 
@@ -33,11 +33,10 @@
     [super viewDidLoad];
     self.backgroundImageView.image = self.backgroundImage;
     AMBlurView *blurView = [AMBlurView new];
-    [blurView setBlurTintColor:[UIColor clearColor]];
+    [blurView setBlurTintColor:[UIColor whiteColor]];
     [blurView setFrame:self.view.bounds];
     [self.view insertSubview:blurView
                 aboveSubview:self.backgroundImageView];
-
     [self createTeamMemberButtons];
     [self downloadPictures];
 }
@@ -55,8 +54,8 @@
                              }];
 }
 
-static CGFloat const kPhotoButtonWidth = 44.0;
-static CGFloat const kPhotoButtonSpacing = 15.0;
+static CGFloat const kPhotoButtonWidth = 48.0;
+static CGFloat const kPhotoButtonSpacing = 30.0;
 
 
 - (void)createTeamMemberButtons
@@ -66,11 +65,22 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
         [button removeFromSuperview];
     }
     
-    CGFloat offset = 20;
-    CGFloat offsetY = 64;
+    CGFloat offset = 19;
+    CGFloat offsetY = 0;
+    CGFloat content = 20;
     
     for (NSInteger i = 0; i < [self.teamMembers count]; i++) {
         UIButton *button = [[UIButton alloc] init];
+        UILabel *label = [[UILabel alloc] init];
+        [label setFrame:CGRectMake(offset - 10,
+                                  offsetY + 54,
+                                  kPhotoButtonWidth + 20, 20)];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        UIFont *loginFont = [UIFont fontWithName:@"Roboto-Regular" size:12.0];
+        
+        [label setTextColor:[UIColor blackColor]];
+        [label setFont:loginFont];
+        
         [button setFrame:CGRectMake(offset,
                                     offsetY,
                                     kPhotoButtonWidth, kPhotoButtonWidth)];
@@ -80,18 +90,28 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
                    action:@selector(buttonTouched:)
          forControlEvents:UIControlEventTouchUpInside];
         [self.teamView addSubview:button];
+        [self.teamView addSubview:label];
         offset += kPhotoButtonWidth + kPhotoButtonSpacing;
         if (offset > 280)
         {
-            offset = 20;
-            offsetY += 60;
+            offset = 19;
+            offsetY += 80;
+        }
+        if(i % 4 == 0){
+           content += 80;
         }
     }
+    if([self.teamMembers count] > 20 ){
+        content += 80;
+    }
+    
+    self.teamView.contentSize = CGSizeMake(320, content);
 }
 
-- (void)setTeamMemberPicture:(UIImage *)image forIndex:(NSInteger)index
+- (void)setTeamMemberPicture:(UIImage *)image andLogin:(NSString *)login forIndex:(NSInteger)index
 {
-    [(UIButton *)self.teamView.subviews[index] setImage:image
+    [(UILabel *)self.teamView.subviews[index*2+1] setText:login];
+    [(UIButton *)self.teamView.subviews[index*2] setImage:image
                                            forState:UIControlStateNormal];
 }
 
@@ -108,7 +128,7 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
                              success:^(UIImage *image) {
                                  if ([image isKindOfClass:[UIImage class]])
                                  {
-                                     [self setTeamMemberPicture:image forIndex:i];
+                                     [self setTeamMemberPicture:image andLogin:memberLogin forIndex:i];
                                  }
                              } failure:^(NSError *error) {
                                  
@@ -119,7 +139,7 @@ static CGFloat const kPhotoButtonSpacing = 15.0;
 
 - (void)buttonTouched:(id)sender
 {
-    NSUInteger index = [self.teamView.subviews indexOfObject:sender];
+    NSUInteger index = [self.teamView.subviews indexOfObject:sender] / 2;
     [self dismissViewControllerAnimated:YES
                              completion:^{
                                  [self.delegate openProfileForUser:self.teamMembers[index]];

@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PeopleNavigationViewController.h"
 
 @interface PeopleActionMenuViewController : UIViewController
+
+@property (assign, nonatomic) PeopleNavigationViewController *navigation;
+
+- (void)populateMenu;
+- (void)changeHasPeople;
 
 @end

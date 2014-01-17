@@ -11,11 +11,12 @@
 #import "PeopleSearchDataSource.h"
 #import "PeopleSearchTableViewCell+ConfigureForCollaborator.h"
 #import "PeopleProfileViewController.h"
+#import "PeopleSearchTextField.h"
 #import "PeopleThemeManager.h"
 #import <AMBlurView.h>
 
-@interface PeopleSearchViewController () <UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@interface PeopleSearchViewController () <UITableViewDelegate, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet PeopleSearchTextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *resultsTableView;
 @property (strong, nonatomic) PeopleSearchDataSource *datasource;
 @property (strong, nonatomic) NSIndexPath *selectedIndexPath;
@@ -40,9 +41,10 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     id<PeopleTheme> theme = [PeopleThemeManager theme];
     [self.searchView setBackgroundColor:[theme primaryColorDark]];
     [self.searchTextField setBackgroundColor:[theme primaryColorLight]];
-    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:self.searchTextField.placeholder attributes:@{ NSForegroundColorAttributeName : [theme secondaryColorDark], NSFontAttributeName : [theme lightFontWithSize:15.0f]}];
+    self.searchTextField.delegate = self;
+    NSAttributedString *placeholder = [[NSAttributedString alloc] initWithString:self.searchTextField.placeholder attributes:@{ NSForegroundColorAttributeName : [theme secondaryColorDark], NSFontAttributeName : [theme mediumFontWithSize:15.0f]}];
     
-    [self.searchTextField setFont:[theme lightFontWithSize:15.0f]];
+    [self.searchTextField setFont:[theme mediumFontWithSize:15.0f]];
     [self.searchTextField setAttributedPlaceholder:placeholder];
     [self.searchTextField setTextColor:[theme secondaryColor]];
 }
@@ -50,7 +52,7 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
 - (void)adjustFonts
 {
     id<PeopleTheme> theme = [PeopleThemeManager theme];
-    [self.searchTextField setFont:[theme lightFontWithSize:self.searchTextField.font.pointSize]];
+    [self.searchTextField setFont:[theme mediumFontWithSize:self.searchTextField.font.pointSize]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,9 +61,13 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
     if (self.selectedIndexPath)
     {
         [self.resultsTableView deselectRowAtIndexPath:self.selectedIndexPath
-                                             animated:YES];
+                                             animated:NO];
         self.selectedIndexPath = nil;
     }
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return self.statusBarHidden;
 }
 
 - (void)bounceSearchView
@@ -111,7 +117,11 @@ static NSString * const kPeopleSearchCellIdentifier = @"kPeopleSearchCellIdentif
         [PeopleServices photoForUser:collaborator.login
                              success:^(UIImage *image) {
                                  if ([cell.loginLabel.text isEqualToString:collaborator.login]) {
+                                     cell.photoImageView.alpha = 0.0f;
                                      cell.photoImageView.image = image;
+                                     [UIView animateWithDuration:0.15f animations:^{
+                                         cell.photoImageView.alpha = 1.0f;
+                                     }];
                                  }
                              }
                              failure:^(NSError *error) {
@@ -180,6 +190,12 @@ static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *updatedString = [self.searchTextField.text stringByReplacingCharactersInRange:range withString:string];
+    [self.searchTextField adjustSearchIconForStringLength:updatedString.length];
+    return YES;
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -192,13 +208,22 @@ static NSString * const kSearchToProfileSegue = @"PeopleSearchToProfileSegue";
     
     UILabel *resultsLabel = [[UILabel alloc] initWithFrame:frame];
     [resultsLabel setTextAlignment:NSTextAlignmentCenter];
-    [resultsLabel setFont:[[PeopleThemeManager theme] regularFontWithSize:8.0]];
+    [resultsLabel setFont:[[PeopleThemeManager theme] regularFontWithSize:12.0]];
     [resultsLabel setMinimumScaleFactor:0];
   
     NSUInteger total = [self.resultsTableView.dataSource tableView:self.resultsTableView numberOfRowsInSection:0];
     NSString *result = total <= 1? NSLocalizedString(@"result", "Result header in Search View") : NSLocalizedString(@"results", "Results header in Search View");
     NSString *resultsString = [NSString stringWithFormat:@"%d %@", total, result];
-    resultsLabel.text = resultsString;
+    
+    id<PeopleTheme> theme = [PeopleThemeManager theme];
+    
+    NSMutableAttributedString *attributedHeader = [[NSMutableAttributedString alloc] initWithString:resultsString];
+    NSRange numberRange = [resultsString rangeOfString:[NSString stringWithFormat:@"%d", total]];
+    NSRange restRange = [resultsString rangeOfString:result];
+    [attributedHeader addAttribute:NSFontAttributeName value:[theme mediumNumberFontWithSize:12.0f] range:numberRange];
+    [attributedHeader addAttribute:NSFontAttributeName value:[theme regularFontWithSize:12.0f] range:restRange];
+    
+    resultsLabel.attributedText = [attributedHeader copy];
     
     [headerView addSubview:resultsLabel];
     return headerView;

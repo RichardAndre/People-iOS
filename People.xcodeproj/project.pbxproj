@@ -80,6 +80,15 @@
 		D3CADB5D18102A9D00CE61BB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3CADB5C18102A9D00CE61BB /* QuartzCore.framework */; };
 		D3CADB6018102DD600CE61BB /* PeopleSearchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CADB5F18102DD600CE61BB /* PeopleSearchDataSource.m */; };
 		D3F99B1E182410CB00617715 /* PeopleTeamViewAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F99B1D182410CB00617715 /* PeopleTeamViewAllViewController.m */; };
+		E92FEFFA18845E02001E3A2F /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF118845E02001E3A2F /* Raleway-Bold.ttf */; };
+		E92FEFFB18845E02001E3A2F /* Raleway-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF218845E02001E3A2F /* Raleway-ExtraBold.ttf */; };
+		E92FEFFC18845E02001E3A2F /* Raleway-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF318845E02001E3A2F /* Raleway-ExtraLight.ttf */; };
+		E92FEFFD18845E02001E3A2F /* Raleway-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF418845E02001E3A2F /* Raleway-Heavy.ttf */; };
+		E92FEFFE18845E02001E3A2F /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF518845E02001E3A2F /* Raleway-Light.ttf */; };
+		E92FEFFF18845E02001E3A2F /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF618845E02001E3A2F /* Raleway-Medium.ttf */; };
+		E92FF00018845E02001E3A2F /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF718845E02001E3A2F /* Raleway-Regular.ttf */; };
+		E92FF00118845E02001E3A2F /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF818845E02001E3A2F /* Raleway-SemiBold.ttf */; };
+		E92FF00218845E02001E3A2F /* raleway_thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E92FEFF918845E02001E3A2F /* raleway_thin.otf */; };
 		F79CE7DA28B547428F775C5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095B7F133C9A432FA5AF8B51 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +220,15 @@
 		D3F99B1C182410CB00617715 /* PeopleTeamViewAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleTeamViewAllViewController.h; path = "Classes/View Controllers/PeopleTeamViewAllViewController.h"; sourceTree = "<group>"; };
 		D3F99B1D182410CB00617715 /* PeopleTeamViewAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleTeamViewAllViewController.m; path = "Classes/View Controllers/PeopleTeamViewAllViewController.m"; sourceTree = "<group>"; };
 		D3F99B1F1824285B00617715 /* PeopleOpenProfileProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PeopleOpenProfileProtocol.h; path = People/Classes/PeopleOpenProfileProtocol.h; sourceTree = "<group>"; };
+		E92FEFF118845E02001E3A2F /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		E92FEFF218845E02001E3A2F /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
+		E92FEFF318845E02001E3A2F /* Raleway-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraLight.ttf"; sourceTree = "<group>"; };
+		E92FEFF418845E02001E3A2F /* Raleway-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Heavy.ttf"; sourceTree = "<group>"; };
+		E92FEFF518845E02001E3A2F /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
+		E92FEFF618845E02001E3A2F /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
+		E92FEFF718845E02001E3A2F /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		E92FEFF818845E02001E3A2F /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		E92FEFF918845E02001E3A2F /* raleway_thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = raleway_thin.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +415,7 @@
 		D35255F918072008003D88E2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E92FEFF018845E02001E3A2F /* Raleway */,
 				D35255FA18072008003D88E2 /* Roboto */,
 			);
 			name = Fonts;
@@ -541,6 +560,22 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		E92FEFF018845E02001E3A2F /* Raleway */ = {
+			isa = PBXGroup;
+			children = (
+				E92FEFF118845E02001E3A2F /* Raleway-Bold.ttf */,
+				E92FEFF218845E02001E3A2F /* Raleway-ExtraBold.ttf */,
+				E92FEFF318845E02001E3A2F /* Raleway-ExtraLight.ttf */,
+				E92FEFF418845E02001E3A2F /* Raleway-Heavy.ttf */,
+				E92FEFF518845E02001E3A2F /* Raleway-Light.ttf */,
+				E92FEFF618845E02001E3A2F /* Raleway-Medium.ttf */,
+				E92FEFF718845E02001E3A2F /* Raleway-Regular.ttf */,
+				E92FEFF818845E02001E3A2F /* Raleway-SemiBold.ttf */,
+				E92FEFF918845E02001E3A2F /* raleway_thin.otf */,
+			);
+			path = Raleway;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -623,12 +658,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D352561418072008003D88E2 /* Roboto-ThinItalic.ttf in Resources */,
+				E92FF00118845E02001E3A2F /* Raleway-SemiBold.ttf in Resources */,
 				D352561318072008003D88E2 /* Roboto-Thin.ttf in Resources */,
+				E92FEFFC18845E02001E3A2F /* Raleway-ExtraLight.ttf in Resources */,
+				E92FEFFE18845E02001E3A2F /* Raleway-Light.ttf in Resources */,
 				D3398B9A18147C4100A7627A /* PeopleProfileProjectsView.xib in Resources */,
 				D352560818072008003D88E2 /* LICENSE.txt in Resources */,
 				D35255D418071C48003D88E2 /* InfoPlist.strings in Resources */,
+				E92FEFFF18845E02001E3A2F /* Raleway-Medium.ttf in Resources */,
+				E92FF00018845E02001E3A2F /* Raleway-Regular.ttf in Resources */,
 				D352560F18072008003D88E2 /* Roboto-LightItalic.ttf in Resources */,
 				D352560B18072008003D88E2 /* Roboto-Bold.ttf in Resources */,
+				E92FEFFD18845E02001E3A2F /* Raleway-Heavy.ttf in Resources */,
 				D352561118072008003D88E2 /* Roboto-MediumItalic.ttf in Resources */,
 				D3398B9618147C2100A7627A /* PeopleProfileCoachView.xib in Resources */,
 				D38E72921811D15B00CEB3FA /* PeopleSearchTableViewCell.xib in Resources */,
@@ -640,11 +681,14 @@
 				D390642918143EE60070B6EF /* PeopleSearchDrawerCell.xib in Resources */,
 				D3398B91181475D100A7627A /* PeopleProfileContactView.xib in Resources */,
 				D3398B8F1814714800A7627A /* PeopleProfileDetailsView.xib in Resources */,
+				E92FEFFB18845E02001E3A2F /* Raleway-ExtraBold.ttf in Resources */,
 				AA6B764D185F91FD00B18B0E /* PeopleActionMenuViewController.xib in Resources */,
 				D352561018072008003D88E2 /* Roboto-Medium.ttf in Resources */,
+				E92FF00218845E02001E3A2F /* raleway_thin.otf in Resources */,
 				D352561218072008003D88E2 /* Roboto-Regular.ttf in Resources */,
 				D352560918072008003D88E2 /* Roboto-Black.ttf in Resources */,
 				D3398B9818147C2E00A7627A /* PeopleProfileTeamView.xib in Resources */,
+				E92FEFFA18845E02001E3A2F /* Raleway-Bold.ttf in Resources */,
 				D352560E18072008003D88E2 /* Roboto-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -795,7 +839,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Silva (PTGT788XS3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Richard Silva (PTGT788XS3)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -834,7 +879,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Silva (PTGT788XS3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Richard Silva (PTGT788XS3)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -856,10 +902,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Silva (PTGT788XS3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "People/People-Prefix.pch";
 				INFOPLIST_FILE = "People/People-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -871,10 +918,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ci&T, Inc.";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Richard Silva (PTGT788XS3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "People/People-Prefix.pch";
 				INFOPLIST_FILE = "People/People-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

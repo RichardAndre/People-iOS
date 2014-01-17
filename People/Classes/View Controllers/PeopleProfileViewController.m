@@ -49,19 +49,31 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController.navigationBar setTranslucent:NO];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [self populate];
+}
+
+-(BOOL)prefersStatusBarHidden{
+    return self.statusBarHidden;
 }
 
 #pragma mark - View Creation
 - (void)createViews
 {
     CGFloat deltaY = 0;
-    deltaY = self.navigationController.navigationBar.frame.size.height + 20.0; //statusbar
-    [self createDetailViewStartingAtY:deltaY];
+    //deltaY = self.navigationController.navigationBar.frame.size.height + 20.0; //statusbar
+    [self createDetailViewStartingAtY:deltaY - 20];
     deltaY += self.detailView.frame.size.height;
     
     [self createPhoneContactViewStartingAtY:deltaY];
@@ -240,14 +252,13 @@
                                           self.projectsView.frame.origin.y,
                                           self.projectsView.frame.size.width,
                                            [self.projectsView totalHeight] + 10.0)];
-  
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width,
-                                               self.projectsView.frame.origin.y + self.projectsView.frame.size.height)];
+                                               self.projectsView.frame.origin.y + self.projectsView.frame.size.height + 74)];
 }
 
 - (void)populateCoachView
 {
-    [self.coachView.nameButton setTitle:self.collaborator.mentorLogin
+    [self.coachView.nameButton setTitle:self.collaborator.mentorName
                                forState:UIControlStateNormal];
 
     [PeopleServices photoForUser:self.collaborator.mentorLogin

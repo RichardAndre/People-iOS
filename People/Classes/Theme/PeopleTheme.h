@@ -12,9 +12,14 @@
 
 - (UIFont *)regularFontWithSize:(CGFloat)size;
 - (UIFont *)lightFontWithSize:(CGFloat)size;
+- (UIFont *)mediumFontWithSize:(CGFloat)size;
+- (UIFont *)lightNumberFontWithSize:(CGFloat)size;
+- (UIFont *)regularNumberFontWithSize:(CGFloat)size;
+- (UIFont *)mediumNumberFontWithSize:(CGFloat)size;
 
 
 - (UIColor *)primaryColorLight;
+- (UIColor *)primaryColorMenu;
 - (UIColor *)primaryColorDark;
 - (UIColor *)secondaryColorDark;
 - (UIColor *)secondaryColor;

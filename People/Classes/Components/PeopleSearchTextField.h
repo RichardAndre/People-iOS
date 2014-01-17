@@ -10,4 +10,6 @@
 
 @interface PeopleSearchTextField : UITextField
 
+- (void)adjustSearchIconForStringLength:(NSInteger)stringLength;
+
 @end
